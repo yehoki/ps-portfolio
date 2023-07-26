@@ -3,7 +3,7 @@ import { AiFillLinkedin } from 'react-icons/ai';
 import { AiFillGithub } from 'react-icons/ai';
 const Links = () => {
   return (
-    <div className="flex">
+    <div className="flex mt-8">
       <SingleLink icon={AiFillLinkedin} destination="" />
       <SingleLink icon={AiFillGithub} destination="" />
       <SingleLink icon={AiFillLinkedin} destination="" />
