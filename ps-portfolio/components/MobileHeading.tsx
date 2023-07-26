@@ -4,7 +4,7 @@ interface MobileHeadingProps {
 
 const MobileHeading: React.FC<MobileHeadingProps> = ({ label }) => {
   return (
-    <div className="uppercase py-8 text-sm font-semibold tracking-wider">
+    <div className="block lg:hidden uppercase py-8 text-sm font-semibold tracking-wider">
       {label}
     </div>
   );

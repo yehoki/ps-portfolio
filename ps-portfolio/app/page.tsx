@@ -1,5 +1,9 @@
+'use client';
+
+import EducationItem from '@/components/Education/EducationItem';
 import ExperienceItem from '@/components/Experience/ExperienceItem';
 import MobileHeading from '@/components/MobileHeading';
+import ProjectItem from '@/components/Projects/ProjectItem';
 import Links from '@/components/SocialLinks/Links';
 
 export default function Home() {
@@ -10,21 +14,34 @@ export default function Home() {
     'Collaborated frequently with the application engineering department, performing detailed discussions and analysis to identify the root causes of customer-reported issues and implement resolutions.',
   ];
 
+  const contentGuruSkills = ['SQL Server', 'Python', 'Customer Service'];
+
+  const universityOfBathSkills = ['R', 'MatLab', 'Python'];
+  const universityOfHelsinkiSkills = ['Python', 'R'];
+
   return (
-    <div className="px-6 py-12 lg:py-0 min-h-screen mx-auto max-w-screen-xl">
+    <div className="px-6 py-12 md:py-20 lg:py-0 lg:px-24 min-h-screen mx-auto max-w-screen-xl">
       <div className="lg:flex lg:justify-between lg:gap-4">
         <header className="lg:sticky lg:top-0 lg:max-h-screen lg:w-1/2 lg:flex-col lg:py-24">
           <div className="">
             <div className="text-5xl">Patryk Sienniak</div>
             <div className="text-2xl mt-3">Junior Software Engineer</div>
-            <div className="mt-4">Brief Description</div>
+            <div className="mt-4 text-psText/60 max-w-xs">
+              This will be a reasonably sized paragraph - not too long and not
+              too short.
+            </div>
             <Links />
           </div>
         </header>
-        <main className="lg:py-24">
+        <main className="lg:py-24 lg:w-1/2 ">
           <div>
             <MobileHeading label="About" />
-            <div>About Me Text</div>
+            <div className="text-psText/60">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Cupiditate aperiam, rerum quam, sapiente ducimus voluptatum
+              incidunt ex quidem, impedit recusandae iste ab doloremque est!
+              Beatae ipsum temporibus molestiae expedita tempora.
+            </div>
           </div>
           <div className="">
             <MobileHeading label="Experience" />
@@ -38,15 +55,42 @@ export default function Home() {
                 jobDescription={contentGuruJobDescription}
               />
             </div>
-            <div>View full Resume Link</div>
+            {/* <div>View full Resume Link</div> */}
           </div>
           <div className="">
             <MobileHeading label="Projects" />
-            <div>Projects section</div>
+            <div>
+              <ProjectItem title="Bookmarkt" description="" screenshot="" />
+              <ProjectItem title="" description="" screenshot="" />
+              {/* <ProjectItem title="" description="" screenshot="" />
+              <ProjectItem title="" description="" screenshot="" />
+              <ProjectItem title="" description="" screenshot="" /> */}
+            </div>
           </div>
           <div>
             <MobileHeading label="Education" />
-            <div>Education section</div>
+            <div className="flex flex-col gap-8">
+              <EducationItem
+                from="Sep 2018"
+                to="Jul 2022"
+                place="University of Bath"
+                location="Bath, U.K."
+                degree="(MMath) Master of Mathematics with study year abroad"
+                skills={universityOfBathSkills}
+              />
+              <EducationItem
+                from="Aug 2020"
+                to="Jul 2021"
+                place="University of Helsinki"
+                location="Helsinki, Finland"
+                degree="(MMath) Master of Mathematics with study year abroad"
+                skills={universityOfHelsinkiSkills}
+              />
+            </div>
+          </div>
+          <div>
+            <MobileHeading label="Contact" />
+            <div>Contact</div>
           </div>
         </main>
       </div>

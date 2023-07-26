@@ -18,10 +18,10 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({
   jobDescription,
 }) => {
   return (
-    <div className="grid sm:grid-cols-8">
+    <div className="grid sm:grid-cols-8 sm:gap-8 md:gap-4">
       <div
         className="uppercase text-xs text-psText/40 font-semibold
-      my-1 whitespace-nowrap
+      my-1 whitespace-nowrap lg:whitespace-normal tracking-wide
       sm:col-span-2"
       >
         {from} — {to}
@@ -33,14 +33,18 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({
         </div>
         <div className="text-sm text-psText/40 font-light">
           {/* Job Descr. */}
-          <ul>
+          <ul className="">
             {jobDescription.map((jobItem) => (
-              <li key={jobItem.length}>{jobItem}</li>
+              <li className="my-1" key={jobItem.length}>
+                {jobItem}
+              </li>
             ))}
           </ul>
         </div>
         <div className="flex flex-wrap gap-2">
           <SkillBox skillTitle="SQL Server" />
+          <SkillBox skillTitle="Python" />
+          <SkillBox skillTitle="Customer Service" />
         </div>
       </div>
     </div>
