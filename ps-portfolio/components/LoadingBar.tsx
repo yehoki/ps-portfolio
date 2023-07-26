@@ -12,7 +12,11 @@ const LoadingBar = () => {
   // const test = setInterval(() => setProgress(progress + 1), 1000);
 
   useEffect(() => {
-    if (progress > 50 && progress < 70) {
+    if (progress === 0) {
+      setTimeout(() => {
+        setProgress(progress + 1);
+      }, 700);
+    } else if (progress > 50 && progress < 70) {
       setTimeout(() => {
         setProgress(progress + 1);
       }, 40);
