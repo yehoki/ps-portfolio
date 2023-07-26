@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { IconType } from 'react-icons';
 
 interface SingleLinksProps {
@@ -11,7 +12,14 @@ const SingleLink: React.FC<SingleLinksProps> = ({
 }) => {
   return (
     <div>
-      <Icon size={24} className="rounded-xl" />
+      <a href={destination}>
+        <Icon
+          size={30}
+          className="rounded-xl text-psText/70 
+        hover:text-psText transition
+        cursor-pointer"
+        />
+      </a>
     </div>
   );
 };

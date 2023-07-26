@@ -3,7 +3,11 @@ interface MobileHeadingProps {
 }
 
 const MobileHeading: React.FC<MobileHeadingProps> = ({ label }) => {
-  return <div className="uppercase">{label}</div>;
+  return (
+    <div className="uppercase py-8 text-sm font-semibold tracking-wider">
+      {label}
+    </div>
+  );
 };
 
 export default MobileHeading;
