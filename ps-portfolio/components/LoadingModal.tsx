@@ -1,16 +1,34 @@
+'use client';
 import useLoadingModal from '@/hooks/useLoadingModal';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import LoadingBar from './LoadingBar';
+import { isBlock } from 'typescript';
 
 const LoadingModal = () => {
   const loadingModal = useLoadingModal();
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(true);
+
+  useEffect(() => {
+    setShowModal(loadingModal.isOpen);
+  }, [loadingModal.isOpen]);
+
+  // setTimeout(() => {
+  //   loadingModal.onClose();
+  // }, 1000);
+
   return (
-    <div className="w-full h-full">
+    <div
+      className={`w-full h-full fixed z-50
+    ${loadingModal.isBlock ? 'block' : 'hidden'}`}
+    >
       <div
-        className={`
-    
+        className={`transition duration-[3000ms] bg-psPrimary h-full w-full
+      ${showModal ? 'opacity-100' : 'opacity-0'}
+      pt-10
     `}
-      ></div>
+      >
+        <LoadingBar />
+      </div>
     </div>
   );
 };

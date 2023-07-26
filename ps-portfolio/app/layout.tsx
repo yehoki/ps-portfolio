@@ -1,5 +1,7 @@
+import LoadingModal from '@/components/LoadingModal';
 import './globals.css';
 import { Lato } from 'next/font/google';
+import ClientOnly from '@/components/ClientOnly';
 
 const lato = Lato({
   weight: ['100', '300', '400', '700', '900'],
@@ -20,7 +22,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${lato.variable}`}>
-      <body className="bg-psBg text-psText">{children}</body>
+      <body className="bg-psBg text-psText">
+        <LoadingModal />
+
+        <div>{children}</div>
+      </body>
     </html>
   );
 }

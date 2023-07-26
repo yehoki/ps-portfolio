@@ -2,11 +2,22 @@
 
 import EducationItem from '@/components/Education/EducationItem';
 import ExperienceItem from '@/components/Experience/ExperienceItem';
+import LoadingModal from '@/components/LoadingModal';
 import MobileHeading from '@/components/MobileHeading';
 import ProjectItem from '@/components/Projects/ProjectItem';
 import Links from '@/components/SocialLinks/Links';
+import useLoadingModal from '@/hooks/useLoadingModal';
+import { Router } from 'next/router';
+import { useEffect } from 'react';
 
 export default function Home() {
+  useEffect(() => {
+    Router.events.on('routeChangeStart', (url) => {
+      console.log('Test');
+    });
+  }, [Router]);
+
+  const loadingModal = useLoadingModal();
   const contentGuruJobDescription = [
     'Provided exceptional first-line support to customers, effectively troubleshooting and often resolving queries within 20 minutes, resulting in great customer experience.',
     'Worked within a team environment, actively participating in daily standups to discuss ongoing tasks and providing insights from previous resolutions.',
