@@ -7,16 +7,24 @@ const LoadingBar = () => {
   const loadingModal = useLoadingModal();
 
   const [progress, setProgress] = useState(0);
+  const [randomStutterPercentage, setRandomStutterPercentage] = useState(0);
 
   const progressToPercentage = `${progress.toString()}%`;
   // const test = setInterval(() => setProgress(progress + 1), 1000);
+  const loaderOffset = 20;
+  useEffect(() => {
+    setRandomStutterPercentage(Math.floor(Math.random() * 30) + loaderOffset);
+  }, []);
 
   useEffect(() => {
     if (progress === 0) {
       setTimeout(() => {
         setProgress(progress + 1);
       }, 700);
-    } else if (progress > 50 && progress < 70) {
+    } else if (
+      progress > randomStutterPercentage &&
+      progress < randomStutterPercentage + 20
+    ) {
       setTimeout(() => {
         setProgress(progress + 1);
       }, 40);
@@ -39,7 +47,11 @@ const LoadingBar = () => {
   // }
 
   return (
-    <div className="bg-psSecondary w-full h-[10px]">
+    <div
+      className={`bg-psSecondary h-[10px] w-full
+    ${progress === 0 ? 'scale-0' : 'scale-100'}
+    transition duration-100 ease-in-out origin-left`}
+    >
       <div
         style={{ width: progressToPercentage }}
         className={`

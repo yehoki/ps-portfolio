@@ -1,3 +1,4 @@
+'use client';
 import SkillBox from '../Skills/SkillBox';
 
 interface ExperienceItemProps {
@@ -17,21 +18,40 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({
   location,
   jobDescription,
 }) => {
+  const mainJobDescription = jobDescription[0];
+  const remainderJobDescription =
+    jobDescription.length > 1 ? jobDescription.slice(1) : [];
   return (
-    <div className="grid sm:grid-cols-8 sm:gap-8 md:gap-4">
+    <div
+      className="grid sm:grid-cols-8 sm:gap-8 md:gap-4 
+    lg:px-4 lg:py-2 rounded-lg
+    group
+    lg:hover:bg-psText/5 duration-100 transition"
+    >
       <div
         className="uppercase text-xs text-psText/40 font-semibold
       my-1 whitespace-nowrap lg:whitespace-normal tracking-wide
-      sm:col-span-2"
+      sm:col-span-2
+      lg:group-hover:text-psText/70 transition duration-300 lg:group-hover:delay-100
+      
+      "
       >
         {from} — {to}
       </div>
       <div className="sm:col-span-6">
-        <div className="text-psText/90 font-semibold">{role}</div>
-        <div className="text-psText/60 font-semibold">
+        <div className="text-psText/90 font-semibold transition lg:group-hover:delay-100 duration-300 lg:group-hover:text-psAccent">
+          {role}
+        </div>
+        <div
+          className="text-psText/60 font-semibold
+        lg:group-hover:text-psAccent/90 transition duration-300 lg:group-hover:delay-[400ms]"
+        >
           {company} · {location}
         </div>
-        <div className="text-sm text-psText/40 font-light">
+        <div
+          className="text-sm text-psText/40 font-light 
+        lg:group-hover:text-psText/70 transition lg:group-hover:delay-700 duration-300"
+        >
           {/* Job Descr. */}
           <ul className="">
             {jobDescription.map((jobItem) => (
