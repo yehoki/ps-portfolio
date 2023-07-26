@@ -37,7 +37,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
         </div>
       </div>
 
-      <div className="relative w-[200px] sm:order-1 sm:w-full sm:h-2/3 lg:w-full lg:h-[75px] lg:max-h-[80px] sm:col-span-2">
+      <div className="relative w-[200px] h-[80px] sm:order-1 sm:w-full sm:h-2/3 lg:w-full lg:h-[75px] lg:max-h-[80px] sm:col-span-2">
         <Image
           src={'/placeholder2.jpeg'}
           fill
