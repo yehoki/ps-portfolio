@@ -26,7 +26,10 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({
       className="grid sm:grid-cols-8 sm:gap-8 md:gap-4 
     lg:px-4 lg:py-2 rounded-lg
     group
-    lg:hover:bg-psText/5 duration-100 transition"
+    lg:hover:bg-psText/5 duration-100 transition
+    lg:group-hover/experience:opacity-60
+    lg:hover:!opacity-100
+    "
     >
       <div
         className="uppercase text-xs text-psText/40 font-semibold
@@ -39,12 +42,10 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({
         {from} — {to}
       </div>
       <div className="sm:col-span-6">
-        <div className="text-psText/90 font-semibold transition lg:group-hover:delay-100 duration-300 lg:group-hover:text-psAccent">
-          {role}
-        </div>
+        <div className="text-psText/90 font-semibold">{role}</div>
         <div
           className="text-psText/60 font-semibold
-        lg:group-hover:text-psAccent/90 transition duration-300 lg:group-hover:delay-[400ms]"
+        lg:group-hover:text-psText/90 transition duration-300 lg:group-hover:delay-[400ms]"
         >
           {company} · {location}
         </div>

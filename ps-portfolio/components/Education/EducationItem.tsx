@@ -23,7 +23,10 @@ const EducationItem: React.FC<EducationItemProps> = ({
       group 
       lg:hover:bg-psText/5 duration-100 transition 
       lg:px-4 lg:py-2
-      rounded-lg"
+      rounded-lg
+      lg:group-hover/education:opacity-60
+      lg:hover:!opacity-100
+      "
     >
       <div
         className="uppercase text-xs text-psText/40 font-semibold

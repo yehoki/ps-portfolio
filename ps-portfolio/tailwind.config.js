@@ -31,6 +31,13 @@ module.exports = {
         psSecondary: '#3c1310',
         psAccent: '#ce934b',
       },
+      borderColor: {
+        psText: '#d7f3f4',
+        psBg: '#0b2728',
+        psPrimary: '#2b5e9c',
+        psSecondary: '#3c1310',
+        psAccent: '#ce934b',
+      }
     },
   },
   plugins: [],

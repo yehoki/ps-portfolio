@@ -20,7 +20,7 @@ export default function Home() {
   const contentGuruSkills = ['SQL Server', 'Python', 'Customer Service'];
 
   const universityOfBathSkills = ['R', 'MatLab', 'Python'];
-  const universityOfHelsinkiSkills = ['Python', 'R'];
+  const universityOfHelsinkiSkills = ['R', 'Python'];
 
   return (
     <>
@@ -37,20 +37,20 @@ export default function Home() {
       >
         <div className="lg:flex lg:justify-between lg:gap-4">
           <header
-            className={`lg:sticky lg:top-0 lg:max-h-screen lg:w-1/2 lg:flex-col lg:py-24
+            className={`lg:sticky lg:top-0 lg:max-h-screen lg:w-1/2 lg:flex lg:flex-col lg:justify-between lg:py-24
           ${loadingModal.isOpen ? 'opacity-0' : 'opacity-100'}
           transition duration-[1500ms] delay-[1500ms] 
           `}
           >
-            <div className="">
+            <div>
               <div className="text-5xl">Patryk Sienniak</div>
               <div className="text-2xl mt-3">Junior Software Engineer</div>
               <div className="mt-4 text-psText/60 max-w-xs">
                 This will be a reasonably sized paragraph - not too long and not
                 too short.
               </div>
-              <Links />
             </div>
+            <Links />
           </header>
           <main
             className={`lg:py-24 lg:w-1/2 
@@ -72,7 +72,7 @@ export default function Home() {
             </div>
             <div className="">
               <MobileHeading label="Experience" />
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 group/experience">
                 <ExperienceItem
                   from="Sep 2022"
                   to="Mar 2023"
@@ -86,9 +86,26 @@ export default function Home() {
             </div>
             <div className="">
               <MobileHeading label="Projects" />
-              <div>
-                <ProjectItem title="Bookmarkt" description="" screenshot="" />
-                <ProjectItem title="" description="" screenshot="" />
+              <div className="group/project">
+                {/* <ProjectItem title="Bookmarkt" description="" screenshot="" /> */}
+                <ProjectItem
+                  title="Bookmarkt"
+                  description="Bookmarkt"
+                  screenshot="N/A"
+                  skills={['Typescript', 'React', 'TailwindCSS', 'MongoDB']}
+                />
+                <ProjectItem
+                  title="RSA Token Generator & Encryptor"
+                  description="RSA Token Generator & Encryptor"
+                  screenshot="N/A"
+                  skills={['Python', 'Powershell']}
+                />
+                <ProjectItem
+                  title="Countries API"
+                  description="RSA Token Generator & Encryptor"
+                  screenshot="N/A"
+                  skills={['Typescript', 'React', 'TailwindCSS']}
+                />
                 {/* <ProjectItem title="" description="" screenshot="" />
               <ProjectItem title="" description="" screenshot="" />
               <ProjectItem title="" description="" screenshot="" /> */}
@@ -96,7 +113,7 @@ export default function Home() {
             </div>
             <div>
               <MobileHeading label="Education" />
-              <div className="flex flex-col gap-8">
+              <div className="flex flex-col gap-8 group/education">
                 <EducationItem
                   from="Sep 2018"
                   to="Jul 2022"
