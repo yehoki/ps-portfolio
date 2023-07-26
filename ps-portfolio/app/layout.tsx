@@ -22,11 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${lato.variable}`}>
-      <body className="bg-psBg text-psText">
-        <LoadingModal />
-
-        <div>{children}</div>
-      </body>
+      <body className="bg-psBg text-psText">{children}</body>
     </html>
   );
 }

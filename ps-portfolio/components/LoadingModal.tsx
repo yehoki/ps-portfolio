@@ -22,9 +22,8 @@ const LoadingModal = () => {
     ${loadingModal.isBlock ? 'block' : 'hidden'}`}
     >
       <div
-        className={`transition duration-[3000ms] bg-psPrimary h-full w-full
+        className={`transition duration-[2250ms] bg-psPrimary h-full w-full
       ${showModal ? 'opacity-100' : 'opacity-0'}
-      pt-10
     `}
       >
         <LoadingBar />

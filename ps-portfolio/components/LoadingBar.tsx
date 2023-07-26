@@ -24,7 +24,7 @@ const LoadingBar = () => {
       loadingModal.onClose();
       setTimeout(() => {
         loadingModal.closeBlock();
-      }, 3000);
+      }, 2250);
     }
   }, [progress]);
 
@@ -35,11 +35,11 @@ const LoadingBar = () => {
   // }
 
   return (
-    <div className="bg-psSecondary w-1/2 h-[40px] mx-auto">
+    <div className="bg-psSecondary w-full h-[10px]">
       <div
         style={{ width: progressToPercentage }}
         className={`
-         bg-psAccent h-[40px] transition ease-in-out
+         bg-psAccent h-[10px] transition ease-in-out
          `}
       ></div>
     </div>
