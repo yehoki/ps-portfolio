@@ -224,7 +224,11 @@ export default function Home() {
                 />
               </div>
               <div className="text-psText lg:text-psText/70 lg:hover:text-psText w-fit group">
-                <Link href={'/resume'} className="flex gap-1 items-center ">
+                <Link
+                  href={'/resume'}
+                  target="_blank"
+                  className="flex gap-1 items-center "
+                >
                   <div className="">See my CV</div>
                   <AiOutlineDoubleRight
                     size={18}
