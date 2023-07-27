@@ -7,6 +7,8 @@ import MobileHeading from '@/components/MobileHeading';
 import ProjectItem from '@/components/Projects/ProjectItem';
 import Links from '@/components/SocialLinks/Links';
 import useLoadingModal from '@/hooks/useLoadingModal';
+import Link from 'next/link';
+import { AiOutlineDoubleRight } from 'react-icons/ai';
 
 export default function Home() {
   const loadingModal = useLoadingModal();
@@ -29,7 +31,7 @@ export default function Home() {
         ${
           loadingModal.isOpen
             ? 'scale-0'
-            : 'transition delay-[1000ms] duration-100 scale-100'
+            : 'transition delay-[500ms] duration-100 scale-100'
         }
         `}
       >
@@ -70,7 +72,7 @@ export default function Home() {
             </div>
             <div className="mb-12 lg:mb-20">
               <MobileHeading label="Experience" />
-              <div className="flex flex-col gap-2 group/experience">
+              <div className="flex flex-col gap-2 group/experience mb-8">
                 <ExperienceItem
                   from="Sep 2022"
                   to="Mar 2023"
@@ -80,8 +82,17 @@ export default function Home() {
                   jobDescription={contentGuruJobDescription}
                 />
               </div>
-              <div className="text-psText/70 hover:text-psText w-fit cursor-pointer">
-                See my CV
+              <div
+                className="text-psText lg:text-psText/70 lg:hover:text-psText 
+              transition duration-300 w-fit group"
+              >
+                <Link href={'/resume'} className="flex gap-1 items-center ">
+                  <div className="">See my CV</div>
+                  <AiOutlineDoubleRight
+                    size={18}
+                    className="group-hover:translate-x-4 transition-transform duration-300"
+                  />
+                </Link>
               </div>
             </div>
             <div className="mb-12 lg:mb-20">
