@@ -8,10 +8,14 @@ import ProjectItem from '@/components/Projects/ProjectItem';
 import Links from '@/components/SocialLinks/Links';
 import useLoadingModal from '@/hooks/useLoadingModal';
 import Link from 'next/link';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { AiOutlineDoubleRight } from 'react-icons/ai';
 
 export default function Home() {
   const loadingModal = useLoadingModal();
+  const [name, setName] = useState('');
+  const [role, setRole] = useState('');
+  const [description, setDescription] = useState('');
   const contentGuruJobDescription = [
     'Provide exceptional first-line support to customers, resolving queries within 20 minutes for a great customer experience.',
     'Collaborated closely with the application engineering department, analyzing customer-reported issues and implementing effective resolutions.',
@@ -21,11 +25,50 @@ export default function Home() {
 
   const universityOfBathSkills = ['R', 'MatLab', 'Python'];
   const universityOfHelsinkiSkills = ['R', 'Python'];
+  const test = 'Patryk Sienniak';
+
+  const profileDetails = [
+    'Patryk Sienniak',
+    'Software Engineer',
+    'This will be a reasonably sized paragraph - not too long and not too short.',
+  ];
+
+  const typewrite = (
+    i: number,
+    currentText: string,
+    setter: Dispatch<SetStateAction<string>>,
+    fullText: string
+  ) => {
+    if (i < fullText.length + 1) {
+      setTimeout(() => {
+        typewrite(i + 1, currentText + fullText[i], setter, fullText);
+        setter(currentText);
+      }, 125);
+    }
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      typewrite(
+        0,
+        name.includes(profileDetails[0]) ? '' : name,
+        setName,
+        profileDetails[0]
+      );
+    }, 3400);
+    setTimeout(() => {
+      typewrite(
+        0,
+        role.includes(profileDetails[1]) ? '' : role,
+        setRole,
+        profileDetails[1]
+      );
+    }, 3400 + 125 * profileDetails[0].length + 2500);
+  }, []);
 
   return (
     <>
       <LoadingModal />
-
       <div
         className={`px-6 py-12 md:py-20 lg:py-0 lg:px-24 min-h-screen mx-auto max-w-screen-xl 
         ${
@@ -43,11 +86,20 @@ export default function Home() {
           `}
           >
             <div>
-              <div className="text-5xl">Patryk Sienniak</div>
-              <div className="text-2xl mt-3">Junior Software Engineer</div>
+              <div className="text-5xl">
+                <span className="w-fit pr-[1px] border-r-[1px] animate-caretAnimate">
+                  {name}
+                </span>
+              </div>
+              <div className="text-2xl mt-3">
+                <span className="w-fit pr-[1px] border-r-[1px] animate-caretAnimate">
+                  {role}
+                </span>
+              </div>
               <div className="mt-4 text-psText/60 max-w-xs">
-                This will be a reasonably sized paragraph - not too long and not
-                too short.
+                <span className="w-fit pr-[1px] border-r-[1px] animate-caretAnimate">
+                  {description}
+                </span>
               </div>
             </div>
             <Links />
@@ -82,10 +134,7 @@ export default function Home() {
                   jobDescription={contentGuruJobDescription}
                 />
               </div>
-              <div
-                className="text-psText lg:text-psText/70 lg:hover:text-psText 
-              transition duration-300 w-fit group"
-              >
+              <div className="text-psText lg:text-psText/70 lg:hover:text-psText w-fit group">
                 <Link href={'/resume'} className="flex gap-1 items-center ">
                   <div className="">See my CV</div>
                   <AiOutlineDoubleRight

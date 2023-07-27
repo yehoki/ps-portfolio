@@ -1,4 +1,5 @@
 'use client';
+import { useState } from 'react';
 import SkillBox from '../Skills/SkillBox';
 
 interface ExperienceItemProps {
@@ -21,6 +22,7 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({
   const mainJobDescription = jobDescription[0];
   const remainderJobDescription =
     jobDescription.length > 1 ? jobDescription.slice(1) : [];
+
   return (
     <div
       className="grid sm:grid-cols-8 sm:gap-8 md:gap-4 

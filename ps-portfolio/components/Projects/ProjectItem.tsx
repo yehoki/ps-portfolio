@@ -20,7 +20,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
 }) => {
   return (
     <div
-      className="text group grid gap-4 sm:grid-cols-8 lg:px-4 lg:py-2 rounded-lg group
+      className="text group grid gap-4 sm:grid-cols-8 lg:px-4 lg:py-4 rounded-lg group
     lg:hover:bg-psText/5 transition duration-300 lg:group-hover/project:opacity-60 lg:hover:!opacity-100"
     >
       <div className="sm:order-2 sm:col-span-6">
@@ -51,7 +51,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
               : '/images/placeholder2.jpeg'
           }`}
           fill
-          sizes="100vw"
+          sizes="(max-width:1024px) 100vw, 50vw"
           alt={`${title} screenshot`}
           className="rounded-sm  
           border border-psText/40 group-hover:border-psText/80 transition"

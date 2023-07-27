@@ -12,10 +12,6 @@ const LoadingModal = () => {
     setShowModal(loadingModal.isOpen);
   }, [loadingModal.isOpen]);
 
-  // setTimeout(() => {
-  //   loadingModal.onClose();
-  // }, 1000);
-
   return (
     <div
       className={`w-full h-full fixed z-50
