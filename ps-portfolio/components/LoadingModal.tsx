@@ -2,7 +2,6 @@
 import useLoadingModal from '@/hooks/useLoadingModal';
 import { useEffect, useState } from 'react';
 import LoadingBar from './LoadingBar';
-import { isBlock } from 'typescript';
 
 const LoadingModal = () => {
   const loadingModal = useLoadingModal();

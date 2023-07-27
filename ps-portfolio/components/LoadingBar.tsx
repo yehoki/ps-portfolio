@@ -9,42 +9,43 @@ const LoadingBar = () => {
   const [progress, setProgress] = useState(0);
   const [randomStutterPercentage, setRandomStutterPercentage] = useState(0);
 
+  const initialWait = 700;
+  const stutterTiming = 40;
+  const normalTiming = 5;
+  const blockRemoveTiming = 2250;
+  const totalBarLoad = initialWait + 20 * stutterTiming + 80 * normalTiming;
+
   const progressToPercentage = `${progress.toString()}%`;
   // const test = setInterval(() => setProgress(progress + 1), 1000);
   const loaderOffset = 20;
   useEffect(() => {
     setRandomStutterPercentage(Math.floor(Math.random() * 30) + loaderOffset);
+    loadingModal.setLoadingTime(totalBarLoad + blockRemoveTiming);
   }, []);
 
   useEffect(() => {
     if (progress === 0) {
       setTimeout(() => {
         setProgress(progress + 1);
-      }, 700);
+      }, initialWait);
     } else if (
       progress > randomStutterPercentage &&
       progress < randomStutterPercentage + 20
     ) {
       setTimeout(() => {
         setProgress(progress + 1);
-      }, 40);
+      }, stutterTiming);
     } else if (progress < 100) {
       setTimeout(() => {
         setProgress(progress + 1);
-      }, 5);
+      }, normalTiming);
     } else if (progress === 100) {
       loadingModal.onClose();
       setTimeout(() => {
         loadingModal.closeBlock();
-      }, 2250);
+      }, blockRemoveTiming);
     }
   }, [progress]);
-
-  // for (let i = 0; i < 99; i++) {
-  //   setTimeout(() => {
-  //     setProgress(progress + 1);
-  //   }, 33);
-  // }
 
   return (
     <div

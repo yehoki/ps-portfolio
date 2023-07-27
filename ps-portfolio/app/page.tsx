@@ -35,8 +35,8 @@ export default function Home() {
     'This will be a reasonably sized paragraph - not too long and not too short.',
   ];
 
-  const initialLoad = 4000;
-  const characterTimeGap = 75;
+  const initialLoad = 3250;
+  const characterTimeGap = 50;
   const typingTimeGap = 2500;
 
   const roleTimeGap =
@@ -46,7 +46,7 @@ export default function Home() {
     roleTimeGap + characterTimeGap * profileDetails[1].length + typingTimeGap;
 
   const postDescriptionTypingGap =
-    descriptionTimeGap + 30 * profileDetails[2].length + typingTimeGap;
+    descriptionTimeGap + 15 * profileDetails[2].length + typingTimeGap;
 
   const typewrite = (
     i: number,
@@ -69,7 +69,7 @@ export default function Home() {
     }
   };
 
-  useEffect(() => {
+  const typingAnimation = () => {
     setTimeout(() => {
       setNameFinished(false);
       typewrite(
@@ -105,13 +105,19 @@ export default function Home() {
         description.includes(profileDetails[2]) ? '' : description,
         setDescription,
         profileDetails[2],
-        30
+        15
       );
     }, descriptionTimeGap);
 
     setTimeout(() => {
       setDescriptionFinished(true);
     }, postDescriptionTypingGap);
+  };
+
+  useEffect(() => {
+    if (name === '' || role === '' || description === '') {
+      typingAnimation();
+    }
   }, []);
 
   return (
@@ -130,7 +136,7 @@ export default function Home() {
           <header
             className={`lg:sticky lg:top-0 lg:max-h-screen lg:w-1/2 lg:flex lg:flex-col lg:justify-between lg:py-24
           ${loadingModal.isOpen ? 'opacity-0' : 'opacity-100'}
-          transition duration-[1500ms] delay-[1500ms] 
+          transition duration-[1500ms] delay-[800ms] 
           `}
           >
             <div>
@@ -177,14 +183,22 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <Links />
+            <div
+              className={`w-fit ${
+                loadingModal.isOpen
+                  ? 'opacity-0'
+                  : 'opacity-100 transition duration-[1s] delay-[9.5s]'
+              }`}
+            >
+              <Links />
+            </div>
           </header>
           <main
             className={`lg:py-24 lg:w-1/2 
           ${
             loadingModal.isOpen
               ? 'opacity-0'
-              : 'opacity-100 transition duration-[1500ms] delay-[2500ms]'
+              : `opacity-100 transition duration-[1500ms] delay-[10.5s]`
           } 
           `}
           >
