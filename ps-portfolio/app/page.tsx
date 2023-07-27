@@ -8,6 +8,7 @@ import ProjectItem from '@/components/Projects/ProjectItem';
 import Links from '@/components/SocialLinks/Links';
 import useLoadingModal from '@/hooks/useLoadingModal';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { AiOutlineDoubleRight } from 'react-icons/ai';
 
@@ -19,6 +20,8 @@ export default function Home() {
   const [roleFinished, setRoleFinished] = useState(true);
   const [description, setDescription] = useState('');
   const [descriptionFinished, setDescriptionFinished] = useState(true);
+  const router = useRouter();
+
   const contentGuruJobDescription = [
     'Provide exceptional first-line support to customers, resolving queries within 20 minutes for a great customer experience.',
     'Collaborated closely with the application engineering department, analyzing customer-reported issues and implementing effective resolutions.',
@@ -120,6 +123,11 @@ export default function Home() {
     }
   }, []);
 
+  useEffect(() => {
+    loadingModal.onOpen();
+    loadingModal.openBlock();
+  }, [router]);
+
   return (
     <>
       <LoadingModal />
@@ -194,7 +202,7 @@ export default function Home() {
             </div>
           </header>
           <main
-            className={`lg:py-24 lg:w-1/2 
+            className={`lg:py-24 lg:w-1/2
           ${
             loadingModal.isOpen
               ? 'opacity-0'
@@ -239,7 +247,7 @@ export default function Home() {
             </div>
             <div className="mb-12 lg:mb-20">
               <MobileHeading label="Projects" />
-              <div className="group/project flex flex-col gap-4">
+              <div className="group/project flex flex-col gap-4 mb-8">
                 {/* <ProjectItem title="Bookmarkt" description="" screenshot="" /> */}
                 <ProjectItem
                   title="Bookmarkt"
@@ -268,6 +276,15 @@ export default function Home() {
                 {/* <ProjectItem title="" description="" screenshot="" />
               <ProjectItem title="" description="" screenshot="" />
               <ProjectItem title="" description="" screenshot="" /> */}
+              </div>
+              <div className="text-psText lg:text-psText/70 lg:hover:text-psText w-fit group">
+                <Link href={'/projects'} className="flex gap-1 items-center ">
+                  <div className="">See all my projects</div>
+                  <AiOutlineDoubleRight
+                    size={18}
+                    className="group-hover:translate-x-4 transition-transform duration-300"
+                  />
+                </Link>
               </div>
             </div>
             <div>

@@ -49,16 +49,33 @@ const LoadingBar = () => {
 
   return (
     <div
-      className={`bg-psSecondary h-[10px] w-full
+      className={` h-1/2 w-full
     ${progress === 0 ? 'scale-0' : 'scale-100'}
-    transition duration-100 ease-in-out origin-left`}
+    transition duration-100 ease-in-out origin-left 
+    text-[8px] text-psText
+    bg-psBg
+    relative
+    `}
     >
       <div
         style={{ width: progressToPercentage }}
         className={`
-         bg-psAccent h-[10px] transition ease-in-out
+         bg-psAccent h-1/2 w-1/2 transition ease-in-out 
          `}
       ></div>
+
+      {/* <div className="absolute right-0 top-0 z-[1000]">{progress}%</div> */}
+      {/* <svg height={100} width={100}>
+        <circle
+          stroke="white"
+          fill="transparent"
+          strokeWidth={5}
+          stroke-width={5}
+          r={50}
+          cx={50}
+          cy={50}
+        />
+      </svg> */}
     </div>
   );
 };

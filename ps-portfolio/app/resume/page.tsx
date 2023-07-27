@@ -1,8 +1,9 @@
 export default function Page() {
   return (
-    <div className="w-full h-full">
+    <div className="">
       <iframe
-        className="w-full h-full"
+        className="h-screen 
+        w-screen"
         src="/assets/Patryk-Sienniak-Resume-Software-Engineer.pdf"
       ></iframe>
     </div>
