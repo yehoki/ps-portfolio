@@ -54,6 +54,7 @@ module.exports = {
       },
       animation: {
         caretAnimate: 'caret 1s steps(1) infinite',
+        caretTextAnimate: 'caretText 1s steps(1) infinite',
       },
       keyframes: {
         caret: {
@@ -61,6 +62,17 @@ module.exports = {
             borderColor: 'transparent',
           },
         },
+        caretText: {
+          '50%': {
+            color: 'transparent',
+          },
+        },
+      },
+      minHeight: {
+        one: '1px',
+      },
+      minWidth: {
+        one: '1px',
       },
     },
   },

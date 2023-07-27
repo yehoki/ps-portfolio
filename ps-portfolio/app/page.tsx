@@ -14,8 +14,11 @@ import { AiOutlineDoubleRight } from 'react-icons/ai';
 export default function Home() {
   const loadingModal = useLoadingModal();
   const [name, setName] = useState('');
+  const [nameFinished, setNameFinished] = useState(false);
   const [role, setRole] = useState('');
+  const [roleFinished, setRoleFinished] = useState(true);
   const [description, setDescription] = useState('');
+  const [descriptionFinished, setDescriptionFinished] = useState(true);
   const contentGuruJobDescription = [
     'Provide exceptional first-line support to customers, resolving queries within 20 minutes for a great customer experience.',
     'Collaborated closely with the application engineering department, analyzing customer-reported issues and implementing effective resolutions.',
@@ -25,7 +28,6 @@ export default function Home() {
 
   const universityOfBathSkills = ['R', 'MatLab', 'Python'];
   const universityOfHelsinkiSkills = ['R', 'Python'];
-  const test = 'Patryk Sienniak';
 
   const profileDetails = [
     'Patryk Sienniak',
@@ -33,29 +35,56 @@ export default function Home() {
     'This will be a reasonably sized paragraph - not too long and not too short.',
   ];
 
+  const initialLoad = 4000;
+  const characterTimeGap = 75;
+  const typingTimeGap = 2500;
+
+  const roleTimeGap =
+    initialLoad + characterTimeGap * profileDetails[0].length + typingTimeGap;
+
+  const descriptionTimeGap =
+    roleTimeGap + characterTimeGap * profileDetails[1].length + typingTimeGap;
+
+  const postDescriptionTypingGap =
+    descriptionTimeGap + 30 * profileDetails[2].length + typingTimeGap;
+
   const typewrite = (
     i: number,
     currentText: string,
     setter: Dispatch<SetStateAction<string>>,
-    fullText: string
+    fullText: string,
+    typingSpeed: number = characterTimeGap
   ) => {
     if (i < fullText.length + 1) {
       setTimeout(() => {
-        typewrite(i + 1, currentText + fullText[i], setter, fullText);
+        typewrite(
+          i + 1,
+          currentText + fullText[i],
+          setter,
+          fullText,
+          typingSpeed
+        );
         setter(currentText);
-      }, 125);
+      }, typingSpeed);
     }
   };
 
   useEffect(() => {
     setTimeout(() => {
+      setNameFinished(false);
       typewrite(
         0,
         name.includes(profileDetails[0]) ? '' : name,
         setName,
         profileDetails[0]
       );
-    }, 3400);
+    }, initialLoad);
+
+    setTimeout(() => {
+      setNameFinished(true);
+      setRoleFinished(false);
+    }, roleTimeGap - typingTimeGap / 2);
+
     setTimeout(() => {
       typewrite(
         0,
@@ -63,7 +92,26 @@ export default function Home() {
         setRole,
         profileDetails[1]
       );
-    }, 3400 + 125 * profileDetails[0].length + 2500);
+    }, roleTimeGap);
+
+    setTimeout(() => {
+      setRoleFinished(true);
+      setDescriptionFinished(false);
+    }, descriptionTimeGap - typingTimeGap / 2);
+
+    setTimeout(() => {
+      typewrite(
+        0,
+        description.includes(profileDetails[2]) ? '' : description,
+        setDescription,
+        profileDetails[2],
+        30
+      );
+    }, descriptionTimeGap);
+
+    setTimeout(() => {
+      setDescriptionFinished(true);
+    }, postDescriptionTypingGap);
   }, []);
 
   return (
@@ -87,19 +135,46 @@ export default function Home() {
           >
             <div>
               <div className="text-5xl">
-                <span className="w-fit pr-[1px] border-r-[1px] animate-caretAnimate">
+                <span>
                   {name}
+                  <span
+                    className={`${
+                      nameFinished
+                        ? 'text-transparent'
+                        : 'animate-caretTextAnimate'
+                    }`}
+                  >
+                    |
+                  </span>
                 </span>
               </div>
               <div className="text-2xl mt-3">
-                <span className="w-fit pr-[1px] border-r-[1px] animate-caretAnimate">
-                  {role}
+                <span>
+                  {role}{' '}
+                  <span
+                    className={`${
+                      roleFinished
+                        ? 'text-transparent'
+                        : 'animate-caretTextAnimate'
+                    }`}
+                  >
+                    |
+                  </span>
                 </span>
               </div>
               <div className="mt-4 text-psText/60 max-w-xs">
-                <span className="w-fit pr-[1px] border-r-[1px] animate-caretAnimate">
+                <div>
                   {description}
-                </span>
+                  <span
+                    className={`${
+                      descriptionFinished
+                        ? 'text-transparent'
+                        : 'animate-caretTextAnimate'
+                    }`}
+                  >
+                    |
+                  </span>
+                </div>
               </div>
             </div>
             <Links />
