@@ -12,7 +12,8 @@ const SkillBox: React.FC<SkillBoxProps> = ({ skillTitle, secondary }) => {
     text-psText/80 lg:hover:text-psText
       text-xs py-1 px-[10px] 
       rounded-full w-fit 
-      lg:cursor-pointer transition`}
+      lg:cursor-pointer transition
+      select-none`}
     >
       {skillTitle}
     </div>

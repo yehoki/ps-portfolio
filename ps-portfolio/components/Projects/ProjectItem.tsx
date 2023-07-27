@@ -1,11 +1,14 @@
+'use client';
 import Image from 'next/image';
 import SkillBox from '../Skills/SkillBox';
+import Link from 'next/link';
 
 interface ProjectItemProps {
   title: string;
   description: string;
   skills?: string[];
   screenshot: string;
+  href: string;
 }
 
 const ProjectItem: React.FC<ProjectItemProps> = ({
@@ -13,23 +16,23 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
   description,
   skills,
   screenshot,
+  href,
 }) => {
   return (
     <div
-      className="text-sm group grid gap-4 sm:grid-cols-8 lg:px-4 lg:py-2 rounded-lg group
+      className="text group grid gap-4 sm:grid-cols-8 lg:px-4 lg:py-2 rounded-lg group
     lg:hover:bg-psText/5 transition duration-300 lg:group-hover/project:opacity-60 lg:hover:!opacity-100"
     >
       <div className="sm:order-2 sm:col-span-6">
-        <div className="mb-2">{title}</div>
+        <a href={href}>
+          <div className="mb-2 font-semibold">{title}</div>
+        </a>
         <div
-          className="text-xs text-psText/40 leading-[18px] mb-2
+          className="text-sm font-light text-psText/40 mb-2
         lg:group-hover:text-psText/70 transition duration-300 lg:group-hover:delay-300
         "
         >
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum
-          ratione soluta omnis maiores, recusandae, a harum porro dolorum dicta
-          modi inventore. Aliquid, possimus! Cupiditate illo error, explicabo
-          sed iure excepturi.
+          {description}
         </div>
         <div className="flex flex-wrap gap-2 mb-2">
           {skills &&
@@ -37,13 +40,21 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
         </div>
       </div>
 
-      <div className="relative w-[200px] h-[80px] sm:order-1 sm:w-full sm:h-2/3 lg:w-full lg:h-[75px] lg:max-h-[80px] sm:col-span-2">
+      <div
+        className="relative w-[160px] h-[80px] sm:order-1 sm:w-11/12 sm:h-2/3 md:w-3/4 lg:w-full lg:h-[55px] sm:col-span-2 rounded-sm 
+      border border-psText/40 group-hover:border-psText/80 transition"
+      >
         <Image
-          src={'/placeholder2.jpeg'}
+          src={`${
+            screenshot && screenshot !== ''
+              ? screenshot
+              : '/images/placeholder2.jpeg'
+          }`}
           fill
+          sizes="100vw"
           alt={`${title} screenshot`}
-          className="rounded-md border-[2px] border-psText/20 
-          group-hover:border-psText/50 transition"
+          className="rounded-sm  
+          border border-psText/40 group-hover:border-psText/80 transition"
         />
       </div>
     </div>

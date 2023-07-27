@@ -44,23 +44,30 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({
       <div className="sm:col-span-6">
         <div className="text-psText/90 font-semibold">{role}</div>
         <div
-          className="text-psText/60 font-semibold
+          className="text-psText/60 font-semibold mb-2
         lg:group-hover:text-psText/90 transition duration-300 lg:group-hover:delay-[400ms]"
         >
           {company} · {location}
         </div>
         <div
-          className="text-sm text-psText/40 font-light 
-        lg:group-hover:text-psText/70 transition lg:group-hover:delay-700 duration-300"
+          className="text-sm text-psText/40 font-light
+        lg:group-hover:text-psText/70 transition lg:group-hover:delay-700 duration-300
+        mb-2"
         >
+          Provide exceptional first-line support to customers, resolving queries
+          within 20 minutes for a great customer experience. Collaborated
+          closely with the application engineering department, analyzing
+          customer-reported issues and implementing effective resolutions.
+          Gained valuable experience through cross-department rotations,
+          including infrastructure and production deployment.
           {/* Job Descr. */}
-          <ul className="">
+          {/* <ul className="">
             {jobDescription.map((jobItem) => (
               <li className="my-1" key={jobItem.length}>
                 {jobItem}
               </li>
             ))}
-          </ul>
+          </ul> */}
         </div>
         <div className="flex flex-wrap gap-2">
           <SkillBox skillTitle="SQL Server" />

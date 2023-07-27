@@ -11,10 +11,8 @@ import useLoadingModal from '@/hooks/useLoadingModal';
 export default function Home() {
   const loadingModal = useLoadingModal();
   const contentGuruJobDescription = [
-    'Provided exceptional first-line support to customers, effectively troubleshooting and often resolving queries within 20 minutes, resulting in great customer experience.',
-    'Worked within a team environment, actively participating in daily standups to discuss ongoing tasks and providing insights from previous resolutions.',
-    'Participated in cross-department rotations, acquiring valuable experience in diverse areas including infrastructure and production deployment, during which I deployed a SQLServer database upgrade resulting in internal reports being delivered 10x faster.',
-    'Collaborated frequently with the application engineering department, performing detailed discussions and analysis to identify the root causes of customer-reported issues and implement resolutions.',
+    'Provide exceptional first-line support to customers, resolving queries within 20 minutes for a great customer experience.',
+    'Collaborated closely with the application engineering department, analyzing customer-reported issues and implementing effective resolutions.',
   ];
 
   const contentGuruSkills = ['SQL Server', 'Python', 'Customer Service'];
@@ -27,7 +25,7 @@ export default function Home() {
       <LoadingModal />
 
       <div
-        className={`px-6 py-12 md:py-20 lg:py-0 lg:px-24 min-h-screen mx-auto max-w-screen-xl
+        className={`px-6 py-12 md:py-20 lg:py-0 lg:px-24 min-h-screen mx-auto max-w-screen-xl 
         ${
           loadingModal.isOpen
             ? 'scale-0'
@@ -61,7 +59,7 @@ export default function Home() {
           } 
           `}
           >
-            <div>
+            <div className="mb-12 lg:mb-20">
               <MobileHeading label="About" />
               <div className="text-psText/60">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -70,7 +68,7 @@ export default function Home() {
                 Beatae ipsum temporibus molestiae expedita tempora.
               </div>
             </div>
-            <div className="">
+            <div className="mb-12 lg:mb-20">
               <MobileHeading label="Experience" />
               <div className="flex flex-col gap-2 group/experience">
                 <ExperienceItem
@@ -82,29 +80,37 @@ export default function Home() {
                   jobDescription={contentGuruJobDescription}
                 />
               </div>
-              {/* <div>View full Resume Link</div> */}
+              <div className="text-psText/70 hover:text-psText w-fit cursor-pointer">
+                See my CV
+              </div>
             </div>
-            <div className="">
+            <div className="mb-12 lg:mb-20">
               <MobileHeading label="Projects" />
-              <div className="group/project">
+              <div className="group/project flex flex-col gap-4">
                 {/* <ProjectItem title="Bookmarkt" description="" screenshot="" /> */}
                 <ProjectItem
                   title="Bookmarkt"
-                  description="Bookmarkt"
-                  screenshot="N/A"
+                  description="Goodreads clone web app. Find, store and review your favourite books, see what your friends are currently reading and what other people think about the books.
+                  Built using the Google Books API to retrieve book information."
+                  screenshot="/images/bookmarkt-frontpage.png"
                   skills={['Typescript', 'React', 'TailwindCSS', 'MongoDB']}
+                  href="https://github.com/yehoki/bookmarkt"
                 />
                 <ProjectItem
                   title="RSA Token Generator & Encryptor"
-                  description="RSA Token Generator & Encryptor"
-                  screenshot="N/A"
+                  description="Developed a Python program to automate the conversion of RSA tokens to QR codes, generate secure passwords and encrypt the files. 
+                  The program reduced manual processing time by around 90% and improved overall efficiency."
+                  screenshot="/images/RSA-logo.jpeg"
                   skills={['Python', 'Powershell']}
+                  href="https://www.rsa.com/"
                 />
                 <ProjectItem
                   title="Countries API"
-                  description="RSA Token Generator & Encryptor"
-                  screenshot="N/A"
+                  description="Frontend mentor challenge: Mobile responsive web app, using an API to retrieve information about every country in the world.
+                  Search for any country and find the information you need for it."
+                  screenshot="/images/countries-api-4.png"
                   skills={['Typescript', 'React', 'TailwindCSS']}
+                  href="https://countries-api-bice-six.vercel.app/"
                 />
                 {/* <ProjectItem title="" description="" screenshot="" />
               <ProjectItem title="" description="" screenshot="" />

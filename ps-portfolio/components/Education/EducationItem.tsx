@@ -1,3 +1,4 @@
+'use client';
 import SkillBox from '../Skills/SkillBox';
 
 interface EducationItemProps {
@@ -46,16 +47,15 @@ const EducationItem: React.FC<EducationItemProps> = ({
           {degree}
         </div>
         <div
-          className="text-psText/60 font-semibold
+          className="text-psText/60 font-semibold mb-2
           lg:group-hover:text-psText/90 transition lg:group-hover:delay-[400ms] duration-300
         "
         >
           {place} · {location}
         </div>
-        <div className="text-sm text-psText/40 font-light">
-          {/* Job Descr. */}
+        {/* <div className="text-sm text-psText/40 font-light">
           <ul className=""></ul>
-        </div>
+        </div> */}
         <div className="flex flex-wrap gap-2">
           {skills.map((skill) => (
             <SkillBox secondary={true} key={skill} skillTitle={skill} />
