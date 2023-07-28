@@ -59,15 +59,18 @@ export default function Page() {
 
   return (
     <div className="flex h-full w-full items-center justify-center relative">
-      <div className="absolute top-20 left-4 lg:left-40 group text-psText lg:text-psText/70 lg:hover:text-psText w-fit">
-        <Link href={'/'} className="flex gap-1 items-center">
+      <div className="absolute top-[6%] left-4 lg:left-20  text-psText w-fit">
+        <Link
+          href={'/'}
+          className="flex gap-1 items-center lg:text-psText/70 lg:hover:text-psText w-fit group"
+        >
           <AiOutlineDoubleLeft
             size={18}
             className="group-hover:-translate-x-4 transition-transform duration-300"
           />
           <div className="">Back</div>
         </Link>
-        <div>My Projects</div>
+        <div className="text-3xl font-semibold">My Projects</div>
       </div>
       <ClientOnly>
         {/* <Carousel>
