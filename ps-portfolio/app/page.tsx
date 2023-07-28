@@ -270,7 +270,7 @@ export default function Home() {
               className={`w-fit ${
                 loadingModal.isOpen
                   ? 'opacity-0'
-                  : 'opacity-100 transition duration-[1s] delay-[10.5s]'
+                  : 'opacity-100 transition duration-[1s] delay-[9.5s] lg:delay-[10.5s]'
               }`}
             >
               <Links />
@@ -281,11 +281,11 @@ export default function Home() {
           ${
             loadingModal.isOpen
               ? 'opacity-0'
-              : `opacity-100 transition duration-[1s] delay-[11.5s]`
+              : `opacity-100 transition duration-[1s] delay-[10.5s] lg:delay-[11.5s]`
           } 
           `}
           >
-            <div id="About" className="pt-24 mb-12 lg:mb-20">
+            <div id="About" className="lg:pt-24 mb-12 lg:mb-20">
               <MobileHeading label="About" />
               <div className="text-psText/60">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
