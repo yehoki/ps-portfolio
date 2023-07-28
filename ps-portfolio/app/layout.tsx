@@ -21,8 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${lato.variable}`}>
-      <body className="bg-psBg text-psText scroll-smooth">{children}</body>
+    <html lang="en" className={`${lato.variable} scroll-smooth`}>
+      <body className="bg-psBg text-psText">{children}</body>
     </html>
   );
 }

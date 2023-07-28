@@ -2,6 +2,7 @@
 
 import EducationItem from '@/components/Education/EducationItem';
 import ExperienceItem from '@/components/Experience/ExperienceItem';
+import LargeNavigation from '@/components/LargeNavigation';
 import LoadingModal from '@/components/LoadingModal';
 import MobileHeading from '@/components/MobileHeading';
 import ProjectItem from '@/components/Projects/ProjectItem';
@@ -9,7 +10,14 @@ import Links from '@/components/SocialLinks/Links';
 import useLoadingModal from '@/hooks/useLoadingModal';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import {
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 import { AiOutlineDoubleRight } from 'react-icons/ai';
 
 export default function Home() {
@@ -20,6 +28,18 @@ export default function Home() {
   const [roleFinished, setRoleFinished] = useState(true);
   const [description, setDescription] = useState('');
   const [descriptionFinished, setDescriptionFinished] = useState(true);
+
+  const [scrollPosition, setPosition] = useState(0);
+
+  const [experiencePositionY, setExperiencePositionY] = useState(0);
+  const [projectPositionY, setProjectPositionY] = useState(0);
+  const [educationPositionY, setEducationPositionY] = useState(0);
+  const experienceRef = useRef<HTMLDivElement>(null);
+  const projectRef = useRef<HTMLDivElement>(null);
+  const educationRef = useRef<HTMLDivElement>(null);
+
+  const [screenDimensionY, setScreenDimensionY] = useState(0);
+
   const router = useRouter();
 
   const contentGuruJobDescription = [
@@ -124,9 +144,60 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    loadingModal.onOpen();
-    loadingModal.openBlock();
+    // loadingModal.onOpen();
+    // loadingModal.openBlock();
   }, [router]);
+
+  useLayoutEffect(() => {
+    if (experienceRef.current) {
+      setExperiencePositionY(experienceRef.current.offsetTop);
+    }
+    if (projectRef.current) {
+      setProjectPositionY(projectRef.current.offsetTop);
+    }
+    if (educationRef.current) {
+      setEducationPositionY(educationRef.current.offsetTop);
+    }
+
+    const updatePos = () => {
+      setPosition(window.scrollY);
+    };
+
+    const setHeight = () => {
+      setScreenDimensionY(window.outerHeight);
+    };
+
+    window.addEventListener('scroll', updatePos);
+    window.addEventListener('resize', setHeight);
+
+    updatePos();
+    setHeight();
+
+    return () => {
+      window.removeEventListener('scroll', updatePos);
+      window.removeEventListener('resize', setHeight);
+    };
+  }, []);
+
+  const chooseSection = () => {
+    const topOfScreen = scrollPosition + screenDimensionY / 4;
+    if (topOfScreen < experiencePositionY) {
+      return 'About';
+    } else if (
+      topOfScreen >= experiencePositionY &&
+      topOfScreen < projectPositionY
+    ) {
+      return 'Experience';
+    } else if (
+      topOfScreen >= projectPositionY &&
+      topOfScreen < educationPositionY
+    ) {
+      return 'Projects';
+    } else if (topOfScreen >= educationPositionY) {
+      return 'Education';
+    }
+    return 'About';
+  };
 
   return (
     <>
@@ -148,49 +219,53 @@ export default function Home() {
           `}
           >
             <div>
-              <div className="text-5xl">
-                <span>
-                  {name}
-                  <span
-                    className={`${
-                      nameFinished
-                        ? 'text-transparent'
-                        : 'animate-caretTextAnimate'
-                    }`}
-                  >
-                    |
-                  </span>
-                </span>
-              </div>
-              <div className="text-2xl mt-3">
-                <span>
-                  {role}{' '}
-                  <span
-                    className={`${
-                      roleFinished
-                        ? 'text-transparent'
-                        : 'animate-caretTextAnimate'
-                    }`}
-                  >
-                    |
-                  </span>
-                </span>
-              </div>
-              <div className="mt-4 text-psText/60 max-w-xs">
-                <div>
-                  {description}
-                  <span
-                    className={`${
-                      descriptionFinished
-                        ? 'text-transparent'
-                        : 'animate-caretTextAnimate'
-                    }`}
-                  >
-                    |
+              <div className="lg:mb-12">
+                <div className="text-5xl">
+                  <span>
+                    {name}
+                    <span
+                      className={`${
+                        nameFinished
+                          ? 'text-transparent'
+                          : 'animate-caretTextAnimate'
+                      }`}
+                    >
+                      |
+                    </span>
                   </span>
                 </div>
+                <div className="text-2xl mt-3">
+                  <span>
+                    {role}{' '}
+                    <span
+                      className={`${
+                        roleFinished
+                          ? 'text-transparent'
+                          : 'animate-caretTextAnimate'
+                      }`}
+                    >
+                      |
+                    </span>
+                  </span>
+                </div>
+                <div className="mt-4 text-psText/60 max-w-xs">
+                  <div>
+                    {description}
+                    <span
+                      className={`${
+                        descriptionFinished
+                          ? 'text-transparent'
+                          : 'animate-caretTextAnimate'
+                      }`}
+                    >
+                      |
+                    </span>
+                  </div>
+                </div>
               </div>
+              <LargeNavigation sectionSelect={chooseSection()} />
             </div>
+
             <div
               className={`w-fit ${
                 loadingModal.isOpen
@@ -202,7 +277,7 @@ export default function Home() {
             </div>
           </header>
           <main
-            className={`lg:py-24 lg:w-1/2
+            className={`lg:pb-24 lg:w-1/2
           ${
             loadingModal.isOpen
               ? 'opacity-0'
@@ -210,7 +285,7 @@ export default function Home() {
           } 
           `}
           >
-            <div className="mb-12 lg:mb-20">
+            <div id="About" className="pt-24 mb-12 lg:mb-20">
               <MobileHeading label="About" />
               <div className="text-psText/60">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -219,7 +294,7 @@ export default function Home() {
                 Beatae ipsum temporibus molestiae expedita tempora.
               </div>
             </div>
-            <div className="mb-12 lg:mb-20">
+            <div id="Experience" ref={experienceRef} className="mb-12 lg:mb-20">
               <MobileHeading label="Experience" />
               <div className="flex flex-col gap-2 group/experience mb-8">
                 <ExperienceItem
@@ -245,10 +320,9 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="mb-12 lg:mb-20">
+            <div id="Projects" ref={projectRef} className="mb-12 lg:mb-20">
               <MobileHeading label="Projects" />
               <div className="group/project flex flex-col gap-4 mb-8">
-                {/* <ProjectItem title="Bookmarkt" description="" screenshot="" /> */}
                 <ProjectItem
                   title="Bookmarkt"
                   description="Goodreads clone web app. Find, store and review your favourite books, see what your friends are currently reading and what other people think about the books.
@@ -273,9 +347,6 @@ export default function Home() {
                   skills={['Typescript', 'React', 'TailwindCSS']}
                   href="https://countries-api-bice-six.vercel.app/"
                 />
-                {/* <ProjectItem title="" description="" screenshot="" />
-              <ProjectItem title="" description="" screenshot="" />
-              <ProjectItem title="" description="" screenshot="" /> */}
               </div>
               <div className="text-psText lg:text-psText/70 lg:hover:text-psText w-fit group">
                 <Link href={'/projects'} className="flex gap-1 items-center ">
@@ -287,7 +358,7 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div>
+            <div id="Education" ref={educationRef} className="mb-12 lg:mb-20">
               <MobileHeading label="Education" />
               <div className="flex flex-col gap-8 group/education">
                 <EducationItem
@@ -310,7 +381,7 @@ export default function Home() {
             </div>
             <div>
               <MobileHeading label="Contact" />
-              <div>Contact</div>
+              <div className="h-96">Contact</div>
             </div>
           </main>
         </div>

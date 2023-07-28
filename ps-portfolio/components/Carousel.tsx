@@ -23,7 +23,6 @@ const Carousel: React.FC<CarouselProps> = ({ children }) => {
   const childrenLength = childrenAsArray.length;
 
   const handleClick = (mode: 'prev' | 'next') => {
-    console.log(current);
     if (isMoving) {
       return;
     }
@@ -34,12 +33,10 @@ const Carousel: React.FC<CarouselProps> = ({ children }) => {
 
     if (mode === 'prev') {
       if (current <= 1) {
-        console.log('cur les 1');
         setTranslateX(0);
         setCurrent(childrenLength);
       } else {
         if (containerRef.current) {
-          console.log('cur more 1');
           setTranslateX(containerRef.current.clientWidth * (current - 1));
           setCurrent((prev) => --prev);
         }
@@ -47,27 +44,20 @@ const Carousel: React.FC<CarouselProps> = ({ children }) => {
     } else {
       if (containerRef.current) {
         if (current >= childrenLength) {
-          console.log('more than chil');
           setTranslateX(
             containerRef.current.clientWidth * (childrenLength + 1)
           );
           setCurrent(1);
         } else {
-          console.log('less than chil');
           setTranslateX(containerRef.current.clientWidth * (current + 1));
           setCurrent((prev) => ++prev);
         }
       }
     }
-    console.log('test POST', current);
-    console.log(children);
-    console.log(slides);
   };
 
   useEffect(() => {
     const handleTransitionEnd = () => {
-      console.log('ending');
-
       if (containerRef.current) {
         if (current <= 1) {
           containerRef.current.style.transitionDuration = '0ms';
@@ -121,7 +111,7 @@ const Carousel: React.FC<CarouselProps> = ({ children }) => {
         style={{ transform: `translate(${-translateX}px)` }}
         className="
         transition
-    flex w-2/3 h-full list-none p-0 m-0  bg-white
+    flex w-full h-full list-none p-0 m-0  bg-white
     "
       >
         {slides}
