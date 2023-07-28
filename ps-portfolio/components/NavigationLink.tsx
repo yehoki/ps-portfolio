@@ -12,7 +12,11 @@ const NavigationLink: React.FC<NavigationLinkProps> = ({
   label,
 }) => {
   return (
-    <div className={`${selected ? 'text-pink-500' : ''}`}>
+    <div
+      className={`text-psText/70 ${
+        selected ? 'text-psAccent -translate-x-4' : ''
+      } transition duration-200`}
+    >
       <a href={href}>{label}</a>
     </div>
   );

@@ -19,7 +19,6 @@ const LoadingModal = () => {
       <div
         className={`transition duration-[2250ms] bg-psBg h-full w-full
       ${showModal ? 'opacity-100' : 'opacity-0'}
-      flex flex-col items-center justify-center
     `}
       >
         <LoadingBar />

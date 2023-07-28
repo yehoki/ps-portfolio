@@ -144,8 +144,8 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    // loadingModal.onOpen();
-    // loadingModal.openBlock();
+    loadingModal.onOpen();
+    loadingModal.openBlock();
   }, [router]);
 
   useLayoutEffect(() => {
@@ -270,7 +270,7 @@ export default function Home() {
               className={`w-fit ${
                 loadingModal.isOpen
                   ? 'opacity-0'
-                  : 'opacity-100 transition duration-[1s] delay-[9.5s]'
+                  : 'opacity-100 transition duration-[1s] delay-[10.5s]'
               }`}
             >
               <Links />
@@ -281,7 +281,7 @@ export default function Home() {
           ${
             loadingModal.isOpen
               ? 'opacity-0'
-              : `opacity-100 transition duration-[1500ms] delay-[10.5s]`
+              : `opacity-100 transition duration-[1s] delay-[11.5s]`
           } 
           `}
           >

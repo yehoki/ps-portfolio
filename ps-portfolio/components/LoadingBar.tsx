@@ -9,10 +9,10 @@ const LoadingBar = () => {
   const [progress, setProgress] = useState(0);
   const [randomStutterPercentage, setRandomStutterPercentage] = useState(0);
 
-  const initialWait = 700;
-  const stutterTiming = 40;
+  const initialWait = 400;
+  const stutterTiming = 35;
   const normalTiming = 5;
-  const blockRemoveTiming = 2250;
+  const blockRemoveTiming = 1500;
   const totalBarLoad = initialWait + 20 * stutterTiming + 80 * normalTiming;
 
   const progressToPercentage = `${progress.toString()}%`;
@@ -49,7 +49,7 @@ const LoadingBar = () => {
 
   return (
     <div
-      className={` h-1/2 w-full
+      className={` h-[10px] w-full
     ${progress === 0 ? 'scale-0' : 'scale-100'}
     transition duration-100 ease-in-out origin-left 
     text-[8px] text-psText
@@ -60,22 +60,9 @@ const LoadingBar = () => {
       <div
         style={{ width: progressToPercentage }}
         className={`
-         bg-psAccent h-1/2 w-1/2 transition ease-in-out 
+         bg-psAccent h-[10px] w-full transition ease-in-out 
          `}
       ></div>
-
-      {/* <div className="absolute right-0 top-0 z-[1000]">{progress}%</div> */}
-      {/* <svg height={100} width={100}>
-        <circle
-          stroke="white"
-          fill="transparent"
-          strokeWidth={5}
-          stroke-width={5}
-          r={50}
-          cx={50}
-          cy={50}
-        />
-      </svg> */}
     </div>
   );
 };
