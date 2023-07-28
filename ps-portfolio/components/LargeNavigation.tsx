@@ -1,5 +1,6 @@
 'use client';
 
+import useFirstRender from '@/hooks/useFirstRender';
 import NavigationLink from './NavigationLink';
 import useLoadingModal from '@/hooks/useLoadingModal';
 
@@ -9,13 +10,14 @@ interface LargeNavigationProps {
 
 const LargeNavigation: React.FC<LargeNavigationProps> = ({ sectionSelect }) => {
   const loadingModal = useLoadingModal();
+  const firstRender = useFirstRender();
   return (
     <div
       className={`hidden lg:block
     ${
-      loadingModal.isOpen
+      firstRender.isOn
         ? 'opacity-0'
-        : 'opacity-100 transition duration-[1s] delay-[9.5s]'
+        : 'opacity-100 transition duration-[750ms] delay-[9s]'
     }
     `}
     >

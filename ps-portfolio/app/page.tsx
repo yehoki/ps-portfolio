@@ -7,6 +7,7 @@ import LoadingModal from '@/components/LoadingModal';
 import MobileHeading from '@/components/MobileHeading';
 import ProjectItem from '@/components/Projects/ProjectItem';
 import Links from '@/components/SocialLinks/Links';
+import useFirstRender from '@/hooks/useFirstRender';
 import useLoadingModal from '@/hooks/useLoadingModal';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -22,6 +23,8 @@ import { AiOutlineDoubleRight } from 'react-icons/ai';
 
 export default function Home() {
   const loadingModal = useLoadingModal();
+  const firstRender = useFirstRender();
+
   const [name, setName] = useState('');
   const [nameFinished, setNameFinished] = useState(false);
   const [role, setRole] = useState('');
@@ -58,7 +61,7 @@ export default function Home() {
     'This will be a reasonably sized paragraph - not too long and not too short.',
   ];
 
-  const initialLoad = 3250;
+  const initialLoad = 400;
   const characterTimeGap = 50;
   const typingTimeGap = 2500;
 
@@ -69,7 +72,7 @@ export default function Home() {
     roleTimeGap + characterTimeGap * profileDetails[1].length + typingTimeGap;
 
   const postDescriptionTypingGap =
-    descriptionTimeGap + 15 * profileDetails[2].length + typingTimeGap;
+    descriptionTimeGap + 15 * profileDetails[2].length + typingTimeGap - 1500;
 
   const typewrite = (
     i: number,
@@ -138,14 +141,16 @@ export default function Home() {
   };
 
   useEffect(() => {
+    setTimeout(() => {
+      firstRender.onClose();
+    }, 400);
     if (name === '' || role === '' || description === '') {
       typingAnimation();
     }
   }, []);
 
   useEffect(() => {
-    loadingModal.onOpen();
-    loadingModal.openBlock();
+    firstRender.onOpen();
   }, [router]);
 
   useLayoutEffect(() => {
@@ -201,22 +206,13 @@ export default function Home() {
 
   return (
     <>
-      <LoadingModal />
+      {/* <LoadingModal /> */}
       <div
-        className={`px-6 py-12 md:py-20 lg:py-0 lg:px-24 min-h-screen mx-auto max-w-screen-xl 
-        ${
-          loadingModal.isOpen
-            ? 'scale-0'
-            : 'transition delay-[500ms] duration-100 scale-100'
-        }
-        `}
+        className={`px-6 py-12 md:py-20 lg:py-0 lg:px-24 min-h-screen mx-auto max-w-screen-xl `}
       >
         <div className="lg:flex lg:justify-between lg:gap-4">
           <header
-            className={`lg:sticky lg:top-0 lg:max-h-screen lg:w-1/2 lg:flex lg:flex-col lg:justify-between lg:py-24
-          ${loadingModal.isOpen ? 'opacity-0' : 'opacity-100'}
-          transition duration-[1500ms] delay-[800ms] 
-          `}
+            className={`lg:sticky lg:top-0 lg:max-h-screen lg:w-1/2 lg:flex lg:flex-col lg:justify-between lg:py-24`}
           >
             <div>
               <div className="lg:mb-12">
@@ -268,9 +264,9 @@ export default function Home() {
 
             <div
               className={`w-fit ${
-                loadingModal.isOpen
+                firstRender.isOn
                   ? 'opacity-0'
-                  : 'opacity-100 transition duration-[1s] delay-[9.5s] lg:delay-[10.5s]'
+                  : 'opacity-100 transition duration-[750ms] delay-[9s] lg:delay-[9750ms]'
               }`}
             >
               <Links />
@@ -279,9 +275,9 @@ export default function Home() {
           <main
             className={`lg:pb-24 lg:w-1/2
           ${
-            loadingModal.isOpen
+            firstRender.isOn
               ? 'opacity-0'
-              : `opacity-100 transition duration-[1s] delay-[10.5s] lg:delay-[11.5s]`
+              : `opacity-100 transition duration-[750ms] delay-[9750ms] lg:delay-[10.5s]`
           } 
           `}
           >

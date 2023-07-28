@@ -12,10 +12,10 @@ interface LoadingModalStore {
 }
 
 const useLoadingModal = create<LoadingModalStore>((set) => ({
-  isOpen: true,
+  isOpen: false,
   onOpen: () => set({ isOpen: true }),
   onClose: () => set({ isOpen: false }),
-  isBlock: true,
+  isBlock: false,
   closeBlock: () => set({ isBlock: false }),
   openBlock: () => set({ isBlock: true }),
   loadingTime: 0,
