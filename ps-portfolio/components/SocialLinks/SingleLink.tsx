@@ -16,7 +16,7 @@ const SingleLink: React.FC<SingleLinksProps> = ({
         <Icon
           size={30}
           className="rounded-xl text-psText/70 
-        hover:text-psText transition
+        hover:text-psText hover:-translate-y-1 transition duration-[300ms]
         cursor-pointer"
         />
       </a>
