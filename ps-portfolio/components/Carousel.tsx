@@ -9,6 +9,7 @@ import {
   useEffect,
 } from 'react';
 import CarouselItem from './CarouselItem';
+import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai';
 interface CarouselProps {
   children: React.ReactNode;
 }
@@ -28,13 +29,13 @@ const Carousel: React.FC<CarouselProps> = ({ children }) => {
     }
     setIsMoving(true);
     if (containerRef.current) {
-      containerRef.current.style.transitionDuration = '500ms';
+      containerRef.current.style.transitionDuration = '1s';
     }
 
     if (mode === 'prev') {
       if (current <= 1) {
-        setTranslateX(0);
         setCurrent(childrenLength);
+        setTranslateX(0);
       } else {
         if (containerRef.current) {
           setTranslateX(containerRef.current.clientWidth * (current - 1));
@@ -44,10 +45,10 @@ const Carousel: React.FC<CarouselProps> = ({ children }) => {
     } else {
       if (containerRef.current) {
         if (current >= childrenLength) {
+          setCurrent(1);
           setTranslateX(
             containerRef.current.clientWidth * (childrenLength + 1)
           );
-          setCurrent(1);
         } else {
           setTranslateX(containerRef.current.clientWidth * (current + 1));
           setCurrent((prev) => ++prev);
@@ -104,14 +105,15 @@ const Carousel: React.FC<CarouselProps> = ({ children }) => {
 
   return (
     // Root
-    <section className="w-[500px] h-[300px] relative bg-white overflow-hidden text-purple-500 flex justify-center">
+    <section className="w-full max-w-screen-xl h-full relative overflow-hidden flex justify-center items-center">
       {/* Container */}
       <ul
         ref={containerRef}
         style={{ transform: `translate(${-translateX}px)` }}
         className="
         transition
-    flex w-full h-full list-none p-0 m-0  bg-white
+    flex w-full h-[300px] lg:h-3/4 list-none p-0 m-0  bg-white
+    snap-x snap-center
     "
       >
         {slides}
@@ -119,18 +121,18 @@ const Carousel: React.FC<CarouselProps> = ({ children }) => {
       <button
         onClick={() => handleClick('prev')}
         className="absolute top-1/2 -translate-y-1/2 
-        bg-red-800 text-yellow-300 text-2xl border-none cursor-pointer z-50
-        left-0 w-[50px]"
+       text-yellow-300 text-2xl border-none cursor-pointer z-50
+        left-0"
       >
-        {'<'}
+        <AiFillCaretLeft size={48} />
       </button>
       <button
         onClick={() => handleClick('next')}
         className="absolute top-1/2 -translate-y-1/2 
-        bg-red-800 text-yellow-300 text-2xl border-none cursor-pointer z-50
-        right-0 w-[50px]"
+    text-yellow-300 text-2xl border-none cursor-pointer z-50
+        right-0"
       >
-        {'>'}
+        <AiFillCaretRight size={48} />
       </button>
     </section>
   );

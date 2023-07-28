@@ -6,7 +6,10 @@ interface CarouselItemProps {
 
 const CarouselItem: React.FC<CarouselItemProps> = ({ children }) => {
   return (
-    <li className="bg-blue-200 flex-shrink-0 w-full h-full relative">
+    <li
+      className="bg-blue-200 flex-shrink-0 w-full h-full relative
+    flex items-center justify-center"
+    >
       {children}
     </li>
   );
