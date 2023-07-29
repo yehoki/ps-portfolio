@@ -20,6 +20,7 @@ import {
   useState,
 } from 'react';
 import { AiOutlineDoubleRight } from 'react-icons/ai';
+import { FiChevronRight } from 'react-icons/fi';
 
 export default function Home() {
   const loadingModal = useLoadingModal();
@@ -150,7 +151,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    firstRender.onOpen();
+    // firstRender.onOpen();
   }, [router]);
 
   useLayoutEffect(() => {
@@ -206,7 +207,6 @@ export default function Home() {
 
   return (
     <>
-      {/* <LoadingModal /> */}
       <div
         className={`px-6 py-12 md:py-20 lg:py-0 lg:px-24 min-h-screen mx-auto max-w-screen-xl `}
       >
@@ -284,10 +284,37 @@ export default function Home() {
             <div id="About" className="lg:pt-24 mb-12 lg:mb-20">
               <MobileHeading label="About" />
               <div className="text-psText/60">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Cupiditate aperiam, rerum quam, sapiente ducimus voluptatum
-                incidunt ex quidem, impedit recusandae iste ab doloremque est!
-                Beatae ipsum temporibus molestiae expedita tempora.
+                <div>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Cupiditate aperiam, rerum quam, sapiente ducimus voluptatum
+                  incidunt ex quidem, impedit recusandae iste ab doloremque est!
+                  Beatae ipsum temporibus molestiae expedita tempora. Lorem
+                  ipsum dolor sit amet consectetur adipisicing elit.
+                </div>
+                <br />
+                <div>
+                  Repellat, illum ea nesciunt nihil maiores veniam inventore
+                  rerum consequuntur molestiae quasi id facere, sed modi a magni
+                  assumenda dolore perferendis repudiandae. Provident vero
+                  similique quaerat aspernatur quisquam molestiae. Nemo sunt ad
+                  quo quasi rerum libero corporis optio voluptatem fugit
+                  laboriosam labore eos reprehenderit obcaecati perferendis,
+                  fugiat ipsa quod excepturi ducimus enim.
+                </div>
+                <br />
+                <div>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
+                  quasi tempore voluptatem optio, quod in quis id aliquam velit
+                  fugit doloremque culpa tempora reprehenderit beatae soluta
+                  fuga quidem odio alias? Optio earum eius officiis cum modi
+                  facere ratione iusto voluptas provident accusantium assumenda,
+                  porro dolore id ullam, voluptate beatae eaque officia
+                  voluptates, asperiores eos architecto sequi ad rem. Vitae,
+                  unde. Qui impedit nulla error debitis nam tenetur voluptatibus
+                  voluptates eos! Quidem facilis saepe in animi commodi cum
+                  ipsum numquam eaque repellendus adipisci placeat velit
+                  provident, tempore reiciendis earum, est voluptas!
+                </div>
               </div>
             </div>
             <div id="Experience" ref={experienceRef} className="mb-12 lg:mb-20">
@@ -313,7 +340,7 @@ export default function Home() {
                   <div className="">See my CV</div>
                   <AiOutlineDoubleRight
                     size={18}
-                    className="group-active:translate-x-4 transition-transform duration-300"
+                    className="group-hover:translate-x-4 transition-transform duration-300"
                   />
                 </Link>
               </div>
@@ -381,9 +408,54 @@ export default function Home() {
                 />
               </div>
             </div>
-            <div>
+            <div
+              className="lg:px-4 lg:py-2 rounded-lg
+            group lg:hover:bg-psText/5 duration-100 transition
+            mb-12 lg:mb-20
+            "
+            >
               <MobileHeading label="Contact" />
-              <div className="h-96">Contact</div>
+              <a
+                href="mailto:patsenn2000@gmail.com"
+                className="text-lg font-semibold flex cursor-pointer items-center gap-[2px] w-fit"
+              >
+                <div className="group-hover:underline transition duration-300 underline-offset-8 decoration-psAccentBright">
+                  Get In Touch
+                </div>
+                <FiChevronRight
+                  size={18}
+                  className="group-hover:translate-x-4 transition duration-300"
+                />
+                <FiChevronRight
+                  size={18}
+                  className="opacity-0 group-hover:opacity-100 
+                transition duration-150 group-hover:delay-150"
+                />
+              </a>
+              <div
+                className="text-psText 
+              lg:text-psText/70 lg:group-hover:text-psText 
+              transition duration-300 "
+              >
+                <br />
+                <div>
+                  I am currently looking for new opportunities as a software
+                  engineer, although I would prefer working in the frontend, I
+                  am open to contributing in all areas.
+                </div>
+                <br />
+                <div>
+                  If you are actively hiring, or know someone who is, I would be
+                  more than happy to discuss regarding potential employment.
+                </div>
+                <br />
+                <div>
+                  Even if you have just come across my website on accident, I
+                  always love learning and exploring new languages - feel free
+                  to drop me a message in your language, I will try my best to
+                  guess what it is!
+                </div>
+              </div>
             </div>
           </main>
         </div>

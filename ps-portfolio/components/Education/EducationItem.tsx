@@ -53,9 +53,6 @@ const EducationItem: React.FC<EducationItemProps> = ({
         >
           {place} · {location}
         </div>
-        {/* <div className="text-sm text-psText/40 font-light">
-          <ul className=""></ul>
-        </div> */}
         <div className="flex flex-wrap gap-2">
           {skills.map((skill) => (
             <SkillBox secondary={true} key={skill} skillTitle={skill} />

@@ -28,7 +28,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
           href={href}
           className="flex gap-2 mb-2 items-center w-fit group/title"
         >
-          <div className="font-semibold hover:text-psAccentBright lg:group-hover:text-psAccentBright transition duration-300">
+          <div className="font-semibold group-hover/title:text-psAccentBright lg:group-hover:text-psAccentBright transition duration-300">
             {title}
           </div>
           <div className="flex w-fit items-center gap-[2px] ">
