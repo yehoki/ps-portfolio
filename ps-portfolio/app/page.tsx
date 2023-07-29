@@ -306,12 +306,14 @@ export default function Home() {
                 <Link
                   href={'/resume'}
                   target="_blank"
-                  className="flex gap-1 items-center "
+                  className="flex gap-1 items-center group-hover:underline underline-offset-8
+                  decoration-psAccentBright
+                  "
                 >
                   <div className="">See my CV</div>
                   <AiOutlineDoubleRight
                     size={18}
-                    className="group-hover:translate-x-4 transition-transform duration-300"
+                    className="group-active:translate-x-4 transition-transform duration-300"
                   />
                 </Link>
               </div>
@@ -345,7 +347,11 @@ export default function Home() {
                 />
               </div>
               <div className="text-psText lg:text-psText/70 lg:hover:text-psText w-fit group">
-                <Link href={'/projects'} className="flex gap-1 items-center ">
+                <Link
+                  href={'/projects'}
+                  className="flex gap-1 items-center group-hover:underline underline-offset-8
+                  decoration-psAccentBright"
+                >
                   <div className="">See all my projects</div>
                   <AiOutlineDoubleRight
                     size={18}

@@ -22,7 +22,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${lato.variable} scroll-smooth`}>
-      <body className="bg-psBg text-psText">{children}</body>
+      <body className="bg-psBg text-psText selection:bg-psAccent ">
+        {children}
+      </body>
     </html>
   );
 }

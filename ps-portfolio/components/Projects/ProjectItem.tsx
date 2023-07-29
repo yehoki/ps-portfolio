@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import SkillBox from '../Skills/SkillBox';
-import Link from 'next/link';
+import { FiChevronRight } from 'react-icons/fi';
 
 interface ProjectItemProps {
   title: string;
@@ -24,8 +24,27 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
     lg:hover:bg-psText/5 transition duration-300 lg:group-hover/project:opacity-60 lg:hover:!opacity-100"
     >
       <div className="sm:order-2 sm:col-span-6">
-        <a href={href}>
-          <div className="mb-2 font-semibold">{title}</div>
+        <a
+          href={href}
+          className="flex gap-2 mb-2 items-center w-fit group/title"
+        >
+          <div className="font-semibold hover:text-psAccentBright lg:group-hover:text-psAccentBright transition duration-300">
+            {title}
+          </div>
+          <div className="flex w-fit items-center gap-[2px] ">
+            <FiChevronRight
+              size={18}
+              className="
+              group-hover/title:text-psAccentBright lg:group-hover:text-psAccentBright
+              group-hover/title:translate-x-4 lg:group-hover:translate-x-4 transition duration-300"
+            />
+            <FiChevronRight
+              size={18}
+              className="
+              group-hover/title:text-psAccentBright lg:group-hover:text-psAccentBright
+              opacity-0 group-hover/title:opacity-100 lg:group-hover:opacity-100 transition duration-300"
+            />
+          </div>
         </a>
         <div
           className="text-sm font-light text-psText/40 mb-2

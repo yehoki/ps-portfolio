@@ -30,6 +30,7 @@ module.exports = {
         psPrimary: '#2b5e9c',
         psSecondary: '#3c1310',
         psAccent: '#ce934b',
+        psAccentBright: '#E8AF6C'
       },
       borderColor: {
         psText: '#d7f3f4',
@@ -44,6 +45,7 @@ module.exports = {
         psPrimary: '#2b5e9c',
         psSecondary: '#3c1310',
         psAccent: '#ce934b',
+        psAccentBright: '#E8AF6C'
       },
       gradientColorStops: {
         psText: '#d7f3f4',
