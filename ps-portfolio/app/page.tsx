@@ -59,7 +59,7 @@ export default function Home() {
   const profileDetails = [
     'Patryk Sienniak',
     'Software Engineer',
-    'This will be a reasonably sized paragraph - not too long and not too short.',
+    "I'm a software engineer specializing in building modern & responsive full stack applications, currently looking for my first career opportunity.",
   ];
 
   const initialLoad = 400;
@@ -151,7 +151,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    // firstRender.onOpen();
+    firstRender.onOpen();
   }, [router]);
 
   useLayoutEffect(() => {
@@ -285,35 +285,44 @@ export default function Home() {
               <MobileHeading label="About" />
               <div className="text-psText/60">
                 <div>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Cupiditate aperiam, rerum quam, sapiente ducimus voluptatum
-                  incidunt ex quidem, impedit recusandae iste ab doloremque est!
-                  Beatae ipsum temporibus molestiae expedita tempora. Lorem
-                  ipsum dolor sit amet consectetur adipisicing elit.
+                  Born in Poland, growing up in London and having lived for a
+                  year in both New York and Helsinki, I have a knack of rapidly
+                  adapting to new environments, and acquiring the skills
+                  necessary to progress. It&apos;s no different with technology.
+                  My fascination began from an early age, learning how to read
+                  while watching over my dad&apos;s shoulder as he was typing
+                  away.
                 </div>
                 <br />
                 <div>
-                  Repellat, illum ea nesciunt nihil maiores veniam inventore
-                  rerum consequuntur molestiae quasi id facere, sed modi a magni
-                  assumenda dolore perferendis repudiandae. Provident vero
-                  similique quaerat aspernatur quisquam molestiae. Nemo sunt ad
-                  quo quasi rerum libero corporis optio voluptatem fugit
-                  laboriosam labore eos reprehenderit obcaecati perferendis,
-                  fugiat ipsa quod excepturi ducimus enim.
+                  Throughout all this I was always a problem solver. Whether it
+                  was hiding candy from my mother, or figuring out where the
+                  last page of the IKEA instructions is missing. If something
+                  needed to be done, I was always there and you knew it will be
+                  done. I see it all the same now, except I have different
+                  problems to solve, and different tools to solve them with.
+                  Hiding candy became searching through threads on
+                  StackOverflow, and missing instructions became figuring out
+                  where my API is routing to.
                 </div>
                 <br />
                 <div>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
-                  quasi tempore voluptatem optio, quod in quis id aliquam velit
-                  fugit doloremque culpa tempora reprehenderit beatae soluta
-                  fuga quidem odio alias? Optio earum eius officiis cum modi
-                  facere ratione iusto voluptas provident accusantium assumenda,
-                  porro dolore id ullam, voluptate beatae eaque officia
-                  voluptates, asperiores eos architecto sequi ad rem. Vitae,
-                  unde. Qui impedit nulla error debitis nam tenetur voluptatibus
-                  voluptates eos! Quidem facilis saepe in animi commodi cum
-                  ipsum numquam eaque repellendus adipisci placeat velit
-                  provident, tempore reiciendis earum, est voluptas!
+                  You might be wondering, why the heck would someone want to go
+                  and put themselves through this? It&apos;s about the smile on
+                  the other persons&apos; face when you tell them &#34;it&apos;s
+                  done&#34;. It&apos;s about the sense of achievement having
+                  done something which seemed impossible at the start -
+                  it&apos;s almost addicting.
+                </div>
+                <br />
+                <div>
+                  Which brings us to now. Holding the unpopular opinion of
+                  prefering the cold to the warm, you can find me either
+                  reading, whether it&apos; a book or a blog post about
+                  platypuses, but usually in front of my computer. Over the past
+                  few months I&apos;ve been improving my skills in Fullstack
+                  development using Javascript/Typescript, React.js and Node.js
+                  - feel free to browse through some of the work I did below.
                 </div>
               </div>
             </div>
