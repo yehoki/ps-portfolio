@@ -59,7 +59,7 @@ export default function Home() {
   const profileDetails = [
     'Patryk Sienniak',
     'Software Engineer',
-    "I'm a software engineer specializing in building modern & responsive full stack applications, currently looking for my first career opportunity.",
+    "I'm a software engineer specializing in building modern & responsive full stack applications.",
   ];
 
   const initialLoad = 400;
@@ -317,12 +317,12 @@ export default function Home() {
                 <br />
                 <div>
                   Which brings us to now. Holding the unpopular opinion of
-                  prefering the cold to the warm, you can find me either
+                  preferring the cold to the warm, you can find me either
                   reading, whether it&apos; a book or a blog post about
-                  platypuses, but usually in front of my computer. Over the past
-                  few months I&apos;ve been improving my skills in Fullstack
-                  development using Javascript/Typescript, React.js and Node.js
-                  - feel free to browse through some of the work I did below.
+                  platypuses, but usually with me in front of my computer. Over
+                  the past few months I&apos;ve been improving my skills in
+                  Fullstack development using Javascript/Typescript, React.js
+                  and Node.js - you can see some of the work I did below.
                 </div>
               </div>
             </div>
