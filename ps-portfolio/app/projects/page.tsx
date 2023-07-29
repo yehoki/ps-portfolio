@@ -18,7 +18,6 @@ export default function Page() {
     };
 
     const mouseDownHandler = (e: MouseEvent) => {
-      console.log(e);
       if (projectItemRef.current) {
         pos = {
           left: projectItemRef.current.scrollLeft,
@@ -59,10 +58,10 @@ export default function Page() {
 
   return (
     <div className="flex h-full w-full items-center justify-center relative">
-      <div className="absolute top-[6%] left-4 lg:left-20  text-psText w-fit">
+      <div className="absolute top-[6%] left-6 sm:left-10 lg:left-[7.5rem]  text-psText w-fit">
         <Link
           href={'/'}
-          className="flex gap-1 items-center lg:text-psText/70 lg:hover:text-psText w-fit group"
+          className="flex gap-1 items-center lg:text-psText/70 lg:hover:text-psText w-fit group mb-1"
         >
           <AiOutlineDoubleLeft
             size={18}
@@ -73,14 +72,6 @@ export default function Page() {
         <div className="text-3xl font-semibold">My Projects</div>
       </div>
       <ClientOnly>
-        {/* <Carousel>
-          <div className="bg-pink-400 h-[90%] w-11/12 rounded-lg p-4">0</div>
-          <div className="bg-pink-400 h-[90%] w-11/12 rounded-lg p-4">1</div>
-          <div className="bg-pink-400 h-[90%] w-11/12 rounded-lg p-4">2</div>
-          <div className="bg-pink-400 h-[90%] w-11/12 rounded-lg p-4">3</div>
-          <div className="bg-pink-400 h-[90%] w-11/12 rounded-lg p-4">4</div>
-          <div className="bg-pink-400 h-[90%] w-11/12 rounded-lg p-4">5</div>
-        </Carousel> */}
         <div
           className="w-full h-2/3 flex gap-8
           lg:mx-20
@@ -89,7 +80,7 @@ export default function Page() {
         rounded-tr-none rounded-bl-none
         rounded-br-none
         no-scrollbar
-        relative border-y-[1px] border-psText/70
+        relative
         lg:hover:border-psText transition
         group/allProjects
         "
@@ -110,8 +101,8 @@ export default function Page() {
             The program reduced manual processing time by around 90% and improved overall efficiency."
             imageSrc="/images/RSA-logo.jpeg"
             skills={['Python', 'Powershell']}
-            githubLink=""
-            websiteLink=""
+            githubLink="https://github.com/yehoki/firebnb"
+            websiteLink="https://www.rsa.com/"
           />
           <AllProjectItem
             title="Countries API"
@@ -132,11 +123,11 @@ export default function Page() {
           />
           <AllProjectItem
             title="Firebnb"
-            description="Airbnb clone, build from a tutorial by 'Code with Antonio' on YouTube. Used it to improve my responsiveness with Tailwind, React hooks and User authentication using Next-auth."
+            description="Airbnb clone, build from a tutorial by 'Code with Antonio' on YouTube. Used it to improve my understanding of responsiveness with Tailwind, React hooks and User authentication using Next-auth."
             imageSrc="/images/firebnb.png"
             skills={['Typescript', 'React', 'TailwindCSS', 'MongoDB']}
-            githubLink=""
-            websiteLink=""
+            githubLink="https://github.com/yehoki/firebnb"
+            websiteLink="https://firebnb-yehoki.vercel.app/"
           />
           <AllProjectItem
             title="Weather App"
@@ -170,12 +161,6 @@ export default function Page() {
             githubLink="https://github.com/yehoki/calculator"
             websiteLink="https://yehoki.github.io/calculator/"
           />
-
-          {/* <AllProjectItem />
-          <AllProjectItem />
-          <AllProjectItem />
-          <AllProjectItem />
-          <AllProjectItem /> */}
         </div>
       </ClientOnly>
     </div>

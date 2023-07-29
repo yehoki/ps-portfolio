@@ -39,8 +39,8 @@ const AllProjectItem: React.FC<AllProjectItemProps> = ({
       >
         <Image
           fill
-          src={`${imageSrc !== '' ? imageSrc : '/images/RSA-logo.jpeg'}`}
-          alt="RSA"
+          src={`${imageSrc !== '' ? imageSrc : ''}`}
+          alt={`${title} screenshot`}
           className="pointer-events-none rounded-lg"
         />
       </div>
@@ -50,6 +50,7 @@ const AllProjectItem: React.FC<AllProjectItemProps> = ({
             <div className="text-2xl ">{title}</div>
             <div className="flex gap-2">
               <a
+                className="text-psText transition duration-300 lg:hover:-translate-y-1"
                 target="_blank"
                 href={`${
                   githubLink !== ''
@@ -60,6 +61,7 @@ const AllProjectItem: React.FC<AllProjectItemProps> = ({
                 <AiFillGithub size={32} className="cursor-pointer" />
               </a>
               <a
+                className="text-psText transition duration-300 lg:hover:-translate-y-1"
                 target="_blank"
                 href={`${
                   websiteLink !== ''
