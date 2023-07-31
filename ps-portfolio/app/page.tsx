@@ -363,7 +363,7 @@ export default function Home() {
                   Built using the Google Books API to retrieve book information."
                   screenshot="/images/bookmarkt-frontpage.png"
                   skills={['Typescript', 'React', 'TailwindCSS', 'MongoDB']}
-                  href="https://github.com/yehoki/bookmarkt"
+                  href="https://bookmarkt.vercel.app/"
                 />
                 <ProjectItem
                   title="RSA Token Generator & Encryptor"

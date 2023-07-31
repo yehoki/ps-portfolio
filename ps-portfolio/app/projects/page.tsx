@@ -93,7 +93,7 @@ export default function Page() {
             imageSrc="/images/bookmarkt-frontpage.png"
             skills={['Typescript', 'React', 'TailwindCSS', 'MongoDB']}
             githubLink="https://github.com/yehoki/bookmarkt"
-            websiteLink=""
+            websiteLink="https://bookmarkt.vercel.app/"
           />
           <AllProjectItem
             title="RSA Token Generator & Encryptor"
