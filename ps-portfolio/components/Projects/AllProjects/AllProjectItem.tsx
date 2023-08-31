@@ -2,7 +2,7 @@
 
 import SkillBox from '@/components/Skills/SkillBox';
 import Image from 'next/image';
-import { AiFillGithub } from 'react-icons/ai';
+import { AiFillGithub, AiOutlineYoutube } from 'react-icons/ai';
 import { TbWorld } from 'react-icons/tb';
 
 interface AllProjectItemProps {
@@ -12,6 +12,7 @@ interface AllProjectItemProps {
   skills: string[];
   githubLink: string;
   websiteLink: string;
+  youtube?: string;
 }
 
 const AllProjectItem: React.FC<AllProjectItemProps> = ({
@@ -21,6 +22,7 @@ const AllProjectItem: React.FC<AllProjectItemProps> = ({
   skills,
   githubLink,
   websiteLink,
+  youtube,
 }) => {
   return (
     <div
@@ -49,13 +51,20 @@ const AllProjectItem: React.FC<AllProjectItemProps> = ({
           <div className="flex justify-between gap-8 mb-2">
             <div className="text-2xl ">{title}</div>
             <div className="flex gap-2">
+              {youtube && (
+                <a
+                  className="text-psText transition duration-300 lg:hover:-translate-y-1"
+                  target="_blank"
+                  href={youtube}
+                >
+                  <AiOutlineYoutube size={32} />
+                </a>
+              )}
               <a
                 className="text-psText transition duration-300 lg:hover:-translate-y-1"
                 target="_blank"
                 href={`${
-                  githubLink !== ''
-                    ? githubLink
-                    : 'https://github.com/yehoki/bookmarkt'
+                  githubLink !== '' ? githubLink : 'https://github.com/yehoki'
                 }`}
               >
                 <AiFillGithub size={32} className="cursor-pointer" />
@@ -64,9 +73,7 @@ const AllProjectItem: React.FC<AllProjectItemProps> = ({
                 className="text-psText transition duration-300 lg:hover:-translate-y-1"
                 target="_blank"
                 href={`${
-                  websiteLink !== ''
-                    ? websiteLink
-                    : 'https://github.com/yehoki/bookmarkt'
+                  websiteLink !== '' ? websiteLink : 'https://github.com/yehoki'
                 }`}
               >
                 <TbWorld size={32} className="cursor-pointer" />

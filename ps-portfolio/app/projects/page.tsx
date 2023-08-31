@@ -96,8 +96,17 @@ export default function Page() {
             websiteLink="https://bookmarkt.vercel.app/"
           />
           <AllProjectItem
+            title="Findify"
+            description="Fully responsive, Spotify client themed web application, using the Spotify Web API to display the user's top tracks & artists, let them explore common artists and find new song recommendations based on their recent tracks."
+            imageSrc="/images/findify.png"
+            skills={['Typescript', 'React', 'TailwindCSS', 'Redux']}
+            websiteLink="https://findify-phi.vercel.app/"
+            githubLink="https://github.com/yehoki/Findify"
+            youtube="https://www.youtube.com/watch?v=eMHTDfCbId4&ab_channel=PatrykSienniak"
+          />
+          <AllProjectItem
             title="RSA Token Generator & Encryptor"
-            description="Developed a Python program to automate the conversion of RSA tokens to QR codes, generate secure passwords and encrypt the files. 
+            description="As a Support Engineer, I developed a Python program to automate the conversion of RSA tokens to QR codes, generate secure passwords and encrypt the files. 
             The program reduced manual processing time by around 90% and improved overall efficiency."
             imageSrc="/images/RSA-logo.jpeg"
             skills={['Python', 'Powershell']}
@@ -112,6 +121,14 @@ export default function Page() {
             skills={['Typescript', 'React', 'TailwindCSS']}
             githubLink="https://github.com/yehoki/frontend-mentor-challenges/tree/main/countries-api"
             websiteLink="https://countries-api-bice-six.vercel.app/"
+          />
+          <AllProjectItem
+            title="Update script"
+            description="As a Support Engineer, I developed a Powershell script used for automatically checking if the Windows OS, Chrome and Edge are all up to date in a single click. This had to be done daily on around 20 computers, speeding up the process by 80% from completing it manually."
+            imageSrc="https://upload.wikimedia.org/wikipedia/commons/2/2f/PowerShell_5.0_icon.png"
+            skills={['Powershell']}
+            githubLink="https://github.com/yehoki"
+            websiteLink="https://github.com/yehoki"
           />
           <AllProjectItem
             title="Tip Calculator"

@@ -51,15 +51,13 @@ export default function Home() {
     'Collaborated closely with the application engineering department, analyzing customer-reported issues and implementing effective resolutions.',
   ];
 
-  const contentGuruSkills = ['SQL Server', 'Python', 'Customer Service'];
-
   const universityOfBathSkills = ['R', 'MatLab', 'Python'];
   const universityOfHelsinkiSkills = ['R', 'Python'];
 
   const profileDetails = [
     'Patryk Sienniak',
     'Software Engineer',
-    "I'm a software engineer specializing in building modern & responsive full stack applications.",
+    "I'm a software engineer specializing in building modern & responsive web applications.",
   ];
 
   const initialLoad = 400;
@@ -366,12 +364,12 @@ export default function Home() {
                   href="https://bookmarkt.vercel.app/"
                 />
                 <ProjectItem
-                  title="RSA Token Generator & Encryptor"
-                  description="Developed a Python program to automate the conversion of RSA tokens to QR codes, generate secure passwords and encrypt the files. 
-                  The program reduced manual processing time by around 90% and improved overall efficiency."
-                  screenshot="/images/RSA-logo.jpeg"
-                  skills={['Python', 'Powershell']}
-                  href="https://www.rsa.com/"
+                  title="Findify"
+                  description="Fully responsive, Spotify client themed web application, using the Spotify Web API to display the user's top tracks & artists, let them explore common artists and find new song recommendations based on their recent tracks."
+                  screenshot="/images/findify.png"
+                  skills={['Typescript', 'React', 'TailwindCSS', 'Redux']}
+                  href="https://findify-phi.vercel.app/"
+                  youtube="https://www.youtube.com/watch?v=eMHTDfCbId4&ab_channel=PatrykSienniak"
                 />
                 <ProjectItem
                   title="Countries API"
@@ -380,6 +378,14 @@ export default function Home() {
                   screenshot="/images/countries-api-4.png"
                   skills={['Typescript', 'React', 'TailwindCSS']}
                   href="https://countries-api-bice-six.vercel.app/"
+                />
+                <ProjectItem
+                  title="RSA Token Generator & Encryptor"
+                  description="As a Support Engineer, I developed a Python program to automate the conversion of RSA tokens to QR codes, generate secure passwords and encrypt the files. 
+                  The program reduced manual processing time by around 90% and improved overall efficiency."
+                  screenshot="/images/RSA-logo.jpeg"
+                  skills={['Python', 'Powershell']}
+                  href="https://www.rsa.com/"
                 />
               </div>
               <div className="text-psText lg:text-psText/70 lg:hover:text-psText w-fit group">
