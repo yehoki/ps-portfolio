@@ -60,24 +60,30 @@ const AllProjectItem: React.FC<AllProjectItemProps> = ({
                   <AiOutlineYoutube size={32} />
                 </a>
               )}
-              <a
-                className="text-psText transition duration-300 lg:hover:-translate-y-1"
-                target="_blank"
-                href={`${
-                  githubLink !== '' ? githubLink : 'https://github.com/yehoki'
-                }`}
-              >
-                <AiFillGithub size={32} className="cursor-pointer" />
-              </a>
-              <a
-                className="text-psText transition duration-300 lg:hover:-translate-y-1"
-                target="_blank"
-                href={`${
-                  websiteLink !== '' ? websiteLink : 'https://github.com/yehoki'
-                }`}
-              >
-                <TbWorld size={32} className="cursor-pointer" />
-              </a>
+              {githubLink !== '' && (
+                <a
+                  className="text-psText transition duration-300 lg:hover:-translate-y-1"
+                  target="_blank"
+                  href={`${
+                    githubLink !== '' ? githubLink : 'https://github.com/yehoki'
+                  }`}
+                >
+                  <AiFillGithub size={32} className="cursor-pointer" />
+                </a>
+              )}
+              {websiteLink !== '' && (
+                <a
+                  className="text-psText transition duration-300 lg:hover:-translate-y-1"
+                  target="_blank"
+                  href={`${
+                    websiteLink !== ''
+                      ? websiteLink
+                      : 'https://github.com/yehoki'
+                  }`}
+                >
+                  <TbWorld size={32} className="cursor-pointer" />
+                </a>
+              )}
             </div>
           </div>
           <div className="text-sm text-psText/70 mb-2">{description}</div>

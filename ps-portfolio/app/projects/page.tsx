@@ -110,8 +110,8 @@ export default function Page() {
             The program reduced manual processing time by around 90% and improved overall efficiency."
             imageSrc="/images/RSA-logo.jpeg"
             skills={['Python', 'Powershell']}
-            githubLink="https://github.com/yehoki/firebnb"
-            websiteLink="https://www.rsa.com/"
+            githubLink=""
+            websiteLink=""
           />
           <AllProjectItem
             title="Countries API"
@@ -127,8 +127,24 @@ export default function Page() {
             description="As a Support Engineer, I developed a Powershell script used for automatically checking if the Windows OS, Chrome and Edge are all up to date in a single click. This had to be done daily on around 20 computers, speeding up the process by 80% from completing it manually."
             imageSrc="https://upload.wikimedia.org/wikipedia/commons/2/2f/PowerShell_5.0_icon.png"
             skills={['Powershell']}
-            githubLink="https://github.com/yehoki"
-            websiteLink="https://github.com/yehoki"
+            githubLink=""
+            websiteLink=""
+          />
+          <AllProjectItem
+            title="Post Code Driving Distance Calculator"
+            description="Developed a quick Python script, using Pandas and the Google Distance Matrix API, to parse through a csv file containing 'from' and 'to' UK post codes, calculating a driving distance between them and returning in a modified csv file."
+            imageSrc="/images/python-logo.svg"
+            skills={['Python', 'Pandas', 'Google API']}
+            githubLink=""
+            websiteLink=""
+          />
+          <AllProjectItem
+            title="Opinionated Headlines Binary Classification"
+            description="Trained a binary classification model with Naive Bayes, Logistic Regression and SVMs, on a dataset containing news article headlines and whether or not they are from an opinionated source. Using the models, predicted opinionated news sources from their headlines, using Python and the sklearn module and achieving a 96% accuracy."
+            imageSrc="/images/python-logo.svg"
+            skills={['Python', 'Machine Learning']}
+            githubLink=""
+            websiteLink=""
           />
           <AllProjectItem
             title="Tip Calculator"
@@ -138,15 +154,15 @@ export default function Page() {
             githubLink="https://github.com/yehoki/frontend-mentor-challenges/tree/main/tip-calculator"
             websiteLink="https://tip-calculator-phi-henna.vercel.app/"
           />
-          <AllProjectItem
+          {/* <AllProjectItem
             title="Firebnb"
             description="Airbnb clone, build from a tutorial by 'Code with Antonio' on YouTube. Used it to improve my understanding of responsiveness with Tailwind, React hooks and User authentication using Next-auth."
             imageSrc="/images/firebnb.png"
             skills={['Typescript', 'React', 'TailwindCSS', 'MongoDB']}
             githubLink="https://github.com/yehoki/firebnb"
             websiteLink="https://firebnb-yehoki.vercel.app/"
-          />
-          <AllProjectItem
+          /> */}
+          {/* <AllProjectItem
             title="Weather App"
             description="Using a weather API to search and display the current weather in the place you search."
             imageSrc="/images/weather-app.png"
@@ -177,7 +193,7 @@ export default function Page() {
             skills={['HTML', 'CSS', 'Javascript']}
             githubLink="https://github.com/yehoki/calculator"
             websiteLink="https://yehoki.github.io/calculator/"
-          />
+          /> */}
         </div>
       </ClientOnly>
     </div>
