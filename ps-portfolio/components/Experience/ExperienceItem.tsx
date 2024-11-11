@@ -71,7 +71,7 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({
           </div>
           <div className="flex flex-wrap gap-2">
             {jobSkills.map((jobSkill) => (
-              <SkillBox skillTitle={jobSkill} />
+              <SkillBox key={jobSkill} skillTitle={jobSkill} />
             ))}
           </div>
         </div>
