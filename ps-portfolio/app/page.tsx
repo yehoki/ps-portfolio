@@ -51,6 +51,11 @@ export default function Home() {
     'Collaborated closely with the application engineering department, analyzing customer-reported issues and implementing effective resolutions.',
   ];
 
+  const coreStreamJobDescription = [
+    'Enhanced platform first load velocity by over 90% for Analysts using .NET and Vue.js, while engineering platform improvements with the development team.',
+    'Built an internal Chrome Extension used for automating tasks and data manipulation, saving up to 5 times the manual effort.',
+  ];
+
   const universityOfBathSkills = ['R', 'MatLab', 'Python'];
   const universityOfHelsinkiSkills = ['R', 'Python'];
 
@@ -326,16 +331,24 @@ export default function Home() {
             </div>
             <div id="Experience" ref={experienceRef} className="mb-12 lg:mb-20">
               <MobileHeading label="Experience" />
-              <div className="flex flex-col gap-2 group/experience mb-8">
-                <ExperienceItem
-                  from="Sep 2022"
-                  to="Mar 2023"
-                  role="Support Engineer"
-                  company="Content Guru"
-                  location="Bracknell, U.K."
-                  jobDescription={contentGuruJobDescription}
-                />
-              </div>
+              <ExperienceItem
+                from="Nov 2023"
+                to="Now"
+                role="Configuration Analyst"
+                company="CoreStream GRC"
+                location="London, U.K."
+                jobDescription={coreStreamJobDescription}
+                jobSkills={['C#', 'Javascript', 'SQL Server']}
+              />
+              <ExperienceItem
+                from="Sep 2022"
+                to="Mar 2023"
+                role="Support Engineer"
+                company="Content Guru"
+                location="Bracknell, U.K."
+                jobDescription={contentGuruJobDescription}
+                jobSkills={['SQL Server', 'Python', 'Customer Service']}
+              />
               <div className="text-psText lg:text-psText/70 lg:hover:text-psText w-fit group">
                 <Link
                   href={'/resume'}
