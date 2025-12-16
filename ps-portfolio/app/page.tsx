@@ -55,14 +55,18 @@ export default function Home() {
     'Enhanced platform first load velocity by over 90% for Analysts using .NET and Vue.js, while engineering platform improvements with the development team.',
     'Built an internal Chrome Extension used for automating tasks and data manipulation, saving up to 5 times the manual effort.',
   ];
+  const coreStreamDeveloperJobDescription = [
+    'Refactored hierarchy functionality into a single table structure, reducing average response time by 40%, applying synchronisation primitives (ReaderWriterLockSlim) to eliminate race condition scenarios.',
+    'Implemented concurrent, background workflow services using asynchronous patterns with async/await and ConcurrentDictionary, alongside event-driven notification systems for UI updates.'
+  ]
 
   const universityOfBathSkills = ['R', 'MatLab', 'Python'];
   const universityOfHelsinkiSkills = ['R', 'Python'];
 
   const profileDetails = [
     'Patryk Sienniak',
-    'Software Engineer',
-    "I'm a software engineer specializing in building modern & responsive web applications.",
+    'Software Developer',
+    "I'm a Software Developer specialising in building high performance web applications.",
   ];
 
   const initialLoad = 400;
@@ -223,11 +227,10 @@ export default function Home() {
                   <span>
                     {name}
                     <span
-                      className={`${
-                        nameFinished
-                          ? 'text-transparent'
-                          : 'animate-caretTextAnimate'
-                      }`}
+                      className={`${nameFinished
+                        ? 'text-transparent'
+                        : 'animate-caretTextAnimate'
+                        }`}
                     >
                       |
                     </span>
@@ -237,11 +240,10 @@ export default function Home() {
                   <span>
                     {role}{' '}
                     <span
-                      className={`${
-                        roleFinished
-                          ? 'text-transparent'
-                          : 'animate-caretTextAnimate'
-                      }`}
+                      className={`${roleFinished
+                        ? 'text-transparent'
+                        : 'animate-caretTextAnimate'
+                        }`}
                     >
                       |
                     </span>
@@ -251,11 +253,10 @@ export default function Home() {
                   <div>
                     {description}
                     <span
-                      className={`${
-                        descriptionFinished
-                          ? 'text-transparent'
-                          : 'animate-caretTextAnimate'
-                      }`}
+                      className={`${descriptionFinished
+                        ? 'text-transparent'
+                        : 'animate-caretTextAnimate'
+                        }`}
                     >
                       |
                     </span>
@@ -266,22 +267,20 @@ export default function Home() {
             </div>
 
             <div
-              className={`w-fit ${
-                firstRender.isOn
-                  ? 'opacity-0'
-                  : 'opacity-100 transition duration-[750ms] delay-[9s] lg:delay-[9750ms]'
-              }`}
+              className={`w-fit ${firstRender.isOn
+                ? 'opacity-0'
+                : 'opacity-100 transition duration-[750ms] delay-[9s] lg:delay-[9750ms]'
+                }`}
             >
               <Links />
             </div>
           </header>
           <main
             className={`lg:pb-24 lg:w-1/2
-          ${
-            firstRender.isOn
-              ? 'opacity-0'
-              : `opacity-100 transition duration-[750ms] delay-[9750ms] lg:delay-[10.5s]`
-          } 
+          ${firstRender.isOn
+                ? 'opacity-0'
+                : `opacity-100 transition duration-[750ms] delay-[9750ms] lg:delay-[10.5s]`
+              } 
           `}
           >
             <div id="About" className="lg:pt-24 mb-12 lg:mb-20">
@@ -332,13 +331,22 @@ export default function Home() {
             <div id="Experience" ref={experienceRef} className="mb-12 lg:mb-20">
               <MobileHeading label="Experience" />
               <ExperienceItem
-                from="Nov 2023"
+                from="Nov 2024"
                 to="Now"
+                role="Back End Developer"
+                company="CoreStream GRC"
+                location="London, U.K."
+                jobDescription={coreStreamDeveloperJobDescription}
+                jobSkills={["C#", ".NET", "Azure DevOps", "SQL Server"]}
+              />
+              <ExperienceItem
+                from="Nov 2023"
+                to="Nov 2024"
                 role="Configuration Analyst"
                 company="CoreStream GRC"
                 location="London, U.K."
                 jobDescription={coreStreamJobDescription}
-                jobSkills={['C#', 'Javascript', 'SQL Server']}
+                jobSkills={['C#', 'JavaScript', 'SQL Server']}
               />
               <ExperienceItem
                 from="Sep 2022"
