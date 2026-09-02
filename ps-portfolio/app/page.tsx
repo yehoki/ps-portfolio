@@ -324,7 +324,7 @@ export default function Home() {
                 role="Software Engineer"
                 company="FINBOURNE Technology"
                 location="London, U.K."
-                jobDescription={coreStreamDeveloperJobDescription}
+                jobDescription={finbourneEngineerJobDescription}
                 jobSkills={["C#", ".NET", "Azure DevOps", "PostgreSQL", "Docker"]}
               />
               <ExperienceItem
