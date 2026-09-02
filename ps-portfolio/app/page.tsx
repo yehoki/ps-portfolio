@@ -301,15 +301,15 @@ export default function Home() {
                 </div>
                 <br />
                 <div>
-                  Throughout all this I was always a problem solver. What started with 
-                  pacing through math problems at school, to figuring out why the request 
-                  failed every 7th call - if there was a problem, I always backed 
-                  myself to get it sorted. 
+                  Throughout all this I was always a problem solver. What started with
+                  pacing through math problems at school, to figuring out why the request
+                  failed every 7th call - if there was a problem, I always backed
+                  myself to get it sorted.
                 </div>
                 <br />
                 <div>
                   Which brings us to now. Holding the unpopular opinion of
-                  preferring the cold to the warm, you can find me either running 
+                  preferring the cold to the warm, you can find me either running
                   around way too quick than my lungs can handle, making jokes which
                   make you groan then smile then groan again, or in front of the computer
                   figuring out where to put the next breakpoint.
@@ -472,21 +472,10 @@ export default function Home() {
               >
                 <br />
                 <div>
-                  I am currently looking for new opportunities as a software
-                  engineer, although I would prefer working in the frontend, I
-                  am open to contributing in all areas.
-                </div>
-                <br />
-                <div>
-                  If you are actively hiring, or know someone who is, I would be
-                  more than happy to discuss regarding potential employment.
-                </div>
-                <br />
-                <div>
-                  Even if you have just come across my website on accident, I
-                  always love learning and exploring new languages - feel free
-                  to drop me a message in your language, I will try my best to
-                  guess what it is!
+                  I am always looking for an adventure worth having, so fear not
+                  to reach out. Whether that is about a potential role, a coffee chat,
+                  or you just need someone to waffle with. Chances are, I might take you up
+                  for one of those.
                 </div>
               </div>
             </div>

@@ -4,7 +4,7 @@ export default function Page() {
       <iframe
         className="h-screen 
         w-screen"
-        src="/assets/Patryk-Sienniak-Software-Developer-Resume.pdf"
+        src="/assets/Patryk-Sienniak-Software-Engineer-Resume.pdf"
       ></iframe>
     </div>
   );
