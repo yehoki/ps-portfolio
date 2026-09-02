@@ -59,14 +59,18 @@ export default function Home() {
     'Refactored hierarchy functionality into a single table structure, reducing average response time by 40%, applying synchronisation primitives (ReaderWriterLockSlim) to eliminate race condition scenarios.',
     'Implemented concurrent, background workflow services using asynchronous patterns with async/await and ConcurrentDictionary, alongside event-driven notification systems for UI updates.'
   ]
+  const finbourneEngineerJobDescription = [
+    'Extended transaction movement processing to support granular, configurable resolution rules, enabling complex account resolution scenarios that were previously unsupported.',
+    'Mentored and onboarded a junior engineer through thorough code reviews and workshops, accelerating their introduction to the platform.'
+  ]
 
   const universityOfBathSkills = ['R', 'MatLab', 'Python'];
   const universityOfHelsinkiSkills = ['R', 'Python'];
 
   const profileDetails = [
     'Patryk Sienniak',
-    'Software Developer',
-    "I'm a Software Developer specialising in building high performance web applications.",
+    'Software Engineer',
+    "I'm a Software Engineer specialising in building high performance applications.",
   ];
 
   const initialLoad = 400;
@@ -297,42 +301,35 @@ export default function Home() {
                 </div>
                 <br />
                 <div>
-                  Throughout all this I was always a problem solver. Whether it
-                  was hiding candy from my mother, or figuring out where the
-                  last page of the IKEA instructions is missing. If something
-                  needed to be done, I was always there and you knew it will be
-                  done. I see it all the same now, except I have different
-                  problems to solve, and different tools to solve them with.
-                  Hiding candy became searching through threads on
-                  StackOverflow, and missing instructions became figuring out
-                  where my API is routing to.
-                </div>
-                <br />
-                <div>
-                  You might be wondering, why the heck would someone want to go
-                  and put themselves through this? It&apos;s about the smile on
-                  the other persons&apos; face when you tell them &#34;it&apos;s
-                  done&#34;. It&apos;s about the sense of achievement having
-                  done something which seemed impossible at the start -
-                  it&apos;s almost addicting.
+                  Throughout all this I was always a problem solver. What started with 
+                  pacing through math problems at school, to figuring out why the request 
+                  failed every 7th call - if there was a problem, I always backed 
+                  myself to get it sorted. 
                 </div>
                 <br />
                 <div>
                   Which brings us to now. Holding the unpopular opinion of
-                  preferring the cold to the warm, you can find me either
-                  reading, whether it&apos; a book or a blog post about
-                  platypuses, but usually with me in front of my computer. Over
-                  the past few months I&apos;ve been improving my skills in
-                  Fullstack development using Javascript/Typescript, React.js
-                  and Node.js - you can see some of the work I did below.
+                  preferring the cold to the warm, you can find me either running 
+                  around way too quick than my lungs can handle, making jokes which
+                  make you groan then smile then groan again, or in front of the computer
+                  figuring out where to put the next breakpoint.
                 </div>
               </div>
             </div>
             <div id="Experience" ref={experienceRef} className="mb-12 lg:mb-20">
               <MobileHeading label="Experience" />
               <ExperienceItem
-                from="Nov 2024"
+                from="Mar 2026"
                 to="Now"
+                role="Software Engineer"
+                company="FINBOURNE Technology"
+                location="London, U.K."
+                jobDescription={coreStreamDeveloperJobDescription}
+                jobSkills={["C#", ".NET", "Azure DevOps", "PostgreSQL", "Docker"]}
+              />
+              <ExperienceItem
+                from="Nov 2024"
+                to="Mar 2026"
                 role="Back End Developer"
                 company="CoreStream GRC"
                 location="London, U.K."
